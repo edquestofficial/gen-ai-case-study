@@ -7,7 +7,7 @@ RAG with LLama Index
 3. QnA from Resume pdf [Link]() Sandeep | 21 July
 4. QnA from multiple files Advanced [Link](https://github.com/edquestofficial/RAG-With-LLama-Index/blob/main/QnA_bot/QnA_from_multiple_files_Advanced.ipynb) Mohit Saroha, Geetika | 21 July
 5. QnA from YouTube Video [Link]() | Sandeep
-6. QnA from YouTube Playlist [Link]() | Mohit Saroha
+6. QnA from YouTube Playlist [Link](QnA_bot/QnA_from_YouTube_Playlist.ipynb) | Mohit Saroha
 8. Extract structured data from Invoice pdf [Link]() Mohit Kumar, Arun Sahu [Reference](https://docs.llamaindex.ai/en/stable/examples/output_parsing/LangchainOutputParserDemo/)
    
 Technology used:
