@@ -8,6 +8,5 @@ llama-index-core
 google-api-python-client
 speechrecognition
 pyaudio
-pyttsx3
 gradio
 openai-whisper
