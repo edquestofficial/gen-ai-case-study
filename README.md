@@ -1,28 +1,63 @@
-# RAG-With-LLama-Index
-RAG with LLama Index
+# <h1>YouTube Playlist Q&A Bot 🤖 </h1> #
 
-## QnA bot
-1. Hello world with LLama Index [Link]() Bhavya
-2. QnA with txt file (Paul Grahm Essay) [Link]() Atul | 19 July
-3. QnA from Resume pdf [Link]() Sandeep | 21 July
-4. QnA from multiple files Advanced [Link](https://github.com/edquestofficial/RAG-With-LLama-Index/blob/main/QnA_bot/QnA_from_multiple_files_Advanced.ipynb) Mohit Saroha, Geetika | 21 July
-5. QnA from YouTube Playlist [Link](QnA_bot/QnA_from_YouTube_Playlist.ipynb) | Mohit Saroha, Geetika Behl
-6. Invoice (PDF / Image) Parser [Link]() Mohit Kumar, Arun Sahu [Reference](https://docs.llamaindex.ai/en/stable/examples/output_parsing/LangchainOutputParserDemo/)
-7. Website Scraping and their QnA bot [Link]() Atul, Ajay
-8. Financial Report QnA bot [Link]() Sandeep Yadav, Bhavya
+![image](https://github.com/user-attachments/assets/d3df7a5a-2d84-4cc9-8a1c-25ab3f2ed7df)
+
+
+
+<h3> This project enables users to generate transcripts for videos in a YouTube playlist, create embeddings, and ask questions about the video content using a Gradio interface. </h3> 
+
+# <h2>Features</h2> 
+
+
+1. Extracts video links from a YouTube playlist.
+2. Generates transcripts for each video.
+3. Creates embeddings for the transcripts.
+4. Provides a Q&A bot to answer questions about the video content.
+5. Interactive web interface using Gradio.
+
+# <h3> Technologies used 🛠️ </h3>
+
+![image](https://github.com/mohitkumarr60/qnabot/blob/main/utils/technology%20used.jpeg)
+
+
+# <h2> Installation ⚙️ </h2> 
+
+<h3> To get started with this project, follow these steps: </h3>
+
+1. Clone the Repository:
+
+   `git clone https://github.com/mohitkumarr60/qnabot `
    
-Technology used:
- - Vector DB: Inbuilt LLama Index Vector DB, Chroma DB, Redis
- - LLM: Gemini Pro
+   `cd qnabot`
+
+3. Install the necessary dependencies:
+
+    `pip install -r requirements.txt`
+
+4. Set up environment variables:
+
+   Create a .env file in the project root and add your Gemini API key:
+
+   `GEMINI_API_KEY=your_gemini_api_key`
+
+   `YOUTUBE_API_KEY= your_youtube_api_key`
+
+# <h2> Usage</h2>  
+
+<h3> Running the Application </h3>
+
+1. Run the Gradio Interface:
+
+   `python youtube.py`
 
    
-## Text to Sql
+2. Interact with bot:
 
+   * Open the link provided by Gradio in your web browser.
+   * Enter a YouTube playlist URL and click "Process Playlist" to generate transcripts and embeddings.
+   * Ask questions about the video content in the playlist either in voice or text form.
+   * It will give you answer by finding from transcript.
 
-## Voice to QnA
-Technology used: Whisper
+# <h2>Feedback/Query Form </h2>
 
-## Resources
- - Virtual Environment setup [Link]()
- - Docker Setup [Link]()
- - Redis Vector DB Guide [Link]()
+Your Experience Matters: Share Your Feedback and Queries: [Feedback Form](https://forms.gle/1RyBvZzQpokZpGFc9)
