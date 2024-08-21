@@ -235,6 +235,9 @@
         <mxCell id="hcGlnOR86YnZcUBH-7EL-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="300" y="240" width="480" height="110" as="geometry" />
         </mxCell>
+        <mxCell id="hcGlnOR86YnZcUBH-7EL-2" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Sagemaker&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Endpoint&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="124.5" y="607" width="80" height="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
