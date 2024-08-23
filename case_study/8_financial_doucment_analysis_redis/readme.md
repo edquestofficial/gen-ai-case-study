@@ -57,13 +57,13 @@ The project will involve several stages, including setting up the environment, p
    - Integrate the Gemini-1.5-pro model to enable RAG-based retrieval.
    - Develop the logic for processing user queries and retrieving relevant data.
 
-6. **Containerization**:
-   - Write a `Dockerfile` to containerize the application.
-   - Test the Docker container to ensure the application runs smoothly.
-
-7. **User Interface**:
+6. **User Interface**:
    - Build a Gradio interface to allow users to interact with the bot.
    - Design the interface to be user-friendly and intuitive.
+    
+7. **Containerization**:
+   - Write a `Dockerfile` to containerize the application.
+   - Test the Docker container to ensure the application runs smoothly.
 
 8. **Documentation and Deployment**:
    - Document the project thoroughly, explaining each step and its purpose.
