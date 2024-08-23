@@ -52,6 +52,7 @@ The project will involve several stages, including setting up the environment, p
 4. **Embedding Generation**:
    - Choose an appropriate HuggingFace Embedding Model.
    - Implement the embedding generation logic and store the embeddings in Redis.
+   - Implement Parallel Processing.
 
 5. **RAG Implementation**:
    - Integrate the Gemini-1.5-pro model to enable RAG-based retrieval.
