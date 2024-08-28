@@ -9,6 +9,7 @@ This reference guide outlines the steps to create a bot that extracts data from 
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
 - [Step-by-Step Guide](#step-by-step-guide)
+- [Redis Environment Setup using Docker](https://github.com/edquestofficial/gen-ai-case-study/blob/main/case_study/8_financial_document_analysis/doc/README_Redis.md)
 
 ## Introduction
 
