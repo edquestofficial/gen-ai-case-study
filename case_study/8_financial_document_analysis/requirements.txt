@@ -1,4 +1,6 @@
-llama-index-embeddings-huggingface
-llama-index-embeddings-instructor
 llama-index
+llama-index-core
+llama-index-embeddings-huggingface
 llama-index-llms-gemini
+python-dotenv
+redis
