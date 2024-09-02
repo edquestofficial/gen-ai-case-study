@@ -1,41 +1,41 @@
-from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.core import Settings
-from llama_index.llms.gemini import Gemini
-from dotenv import load_dotenv
-import os
-import redis
-import io
-
-
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex  # Importing the necessary classes for reading documents and creating a vector index
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding  # Importing the class for generating embeddings using a Hugging Face model
+from llama_index.core import Settings, StorageContext  # Importing settings and storage context for configuring the embedding model and vector store
+from llama_index.llms.gemini import Gemini  # Importing the Gemini LLM for generating responses
+from llama_index.vector_stores.redis import RedisVectorStore  # Importing the Redis vector store for storing embeddings
+from dotenv import load_dotenv  # Importing to load environment variables from a .env file
+import os  # Importing the os module to access environment variables
+import redis  # Importing the Redis library for connecting to the Redis server
 
 def main():
-  load_dotenv()
+    load_dotenv()  # Load environment variables from the .env file
 
-  r= redis.Redis(host='localhost', port=6379, username=os.getenv("REDIS_USERNAME"), password=os.getenv("REDIS_PASSWORD"))
+    # Initialize the Redis client with credentials from environment variables
+    redis_client = redis.Redis(host='localhost', port=6379, username=os.getenv("REDIS_USERNAME"), password=os.getenv("REDIS_PASSWORD"))
 
-  try:
-    r.ping()
-    print("Connected to Redis successfully!")
-  except redis.ConnectionError as e:
-    print(f"Error connecting to Redis: {e}")
+    try:
+        redis_client.ping()  # Ping the Redis server to check the connection
+        print("Connected to Redis successfully!")
+    except:
+        print("Error connecting to Redis")  # Handle connection errors
 
-  documents = SimpleDirectoryReader(input_dir='./data').load_data(num_workers=4)
-  
-  # Print document details
-  length = len(documents)
-  print(f"Loaded {length} documents")
-  
-  embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5", embed_batch_size=20)
+    # Load documents from the specified directory with parallel processing
+    documents = SimpleDirectoryReader(input_dir='./data').load_data(num_workers=4)
+    
+    # Print the number of loaded documents
+    length = len(documents)
+    print(f"Loaded {length} documents")
 
-  Settings.embed_model = embed_model
-  Settings.llm = Gemini(api_key=os.getenv("GEMINI_API_KEY"), model="models/gemini-pro")
+    # Configure the embedding model and LLM settings
+    Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    Settings.llm = Gemini(api_key=os.getenv("GEMINI_API_KEY"), model="models/gemini-pro")
 
-  document_embeddings = [embed_model.get_text_embedding(doc.get_text()) for doc in documents]
+    # Initialize the Redis vector store and storage context
+    vector_store = RedisVectorStore(redis_client=redis_client, overwrite=True)
+    storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
-  # Create the index from the document embeddings
-  index = VectorStoreIndex.from_documents(documents, show_progress=True)
-  print(f"Index created of type: {type(index)}")
+    # Create the index from the document embeddings with progress display
+    index = VectorStoreIndex.from_documents(documents, storage_context=storage_context, show_progress=True)
 
 if __name__ == "__main__":
-    main()
+    main()  # Run the main function
