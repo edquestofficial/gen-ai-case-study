@@ -20,13 +20,6 @@ def main():
     except:
         print("Error connecting to Redis")  # Handle connection errors
 
-    # Load documents from the specified directory with parallel processing
-    documents = SimpleDirectoryReader(input_dir='./data').load_data(num_workers=4)
-    
-    # Print the number of loaded documents
-    length = len(documents)
-    print(f"Loaded {length} documents")
-
     schema = IndexSchema.from_dict({
       "index": {"name": "data", "prefix": "docs"},
       "fields": [
@@ -43,16 +36,25 @@ def main():
     Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
     Settings.llm = Gemini(api_key=os.getenv("GEMINI_API_KEY"), model="models/gemini-pro")
 
-    # # Initialize the Redis vector store and storage context
-    # storage_context = StorageContext.from_defaults(vector_store=vector_store)
-
     # Create the index from the document embeddings with progress display
     index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
-    
+
+    retriever = index.as_retriever(similarity_top_k=3)
     query = input(str("Enter your query: "))
-    query_engine = index.as_query_engine()
-    response = query_engine.query(query)
-    print(response)
+    results = retriever.retrieve(query)
+    print(results)
+    print("""
+          **************************************************************************************
+          """)
+    #retrieve the result which have maximum Score
+    top_response = max(results, key=lambda x: x.score)
+    print(top_response.text)
+
+    
+    # query = input(str("Enter your query: "))
+    # query_engine = index.as_query_engine()
+    # response = query_engine.query(query)
+    # print(response)
              
 if __name__ == "__main__":
     main()  # Run the main function
