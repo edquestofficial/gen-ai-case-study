@@ -1,4 +1,4 @@
-# Financial Document Analyzer
+# Financial Document Analysis
 
 This reference guide outlines the steps to create a bot that extracts data from Financial Documents using Retrieval-Augmented Generation (RAG) technology. The extracted data will be stored in a Redis Vector Database, and the application will be containerized using Docker.
 
