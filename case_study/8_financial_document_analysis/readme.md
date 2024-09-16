@@ -1,4 +1,4 @@
-# Financial Document Analysis
+# Financial Document Analyzer
 
 This reference guide outlines the steps to create a bot that extracts data from Financial Documents using Retrieval-Augmented Generation (RAG) technology. The extracted data will be stored in a Redis Vector Database, and the application will be containerized using Docker.
 
@@ -9,7 +9,6 @@ This reference guide outlines the steps to create a bot that extracts data from 
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
 - [Step-by-Step Guide](#step-by-step-guide)
-- [Redis Environment Setup using Docker](https://github.com/edquestofficial/gen-ai-case-study/blob/main/case_study/8_financial_document_analysis/doc/README_Redis.md)
 
 ## Introduction
 
@@ -38,31 +37,36 @@ The project will involve several stages, including setting up the environment, p
 ## Step-by-Step Guide
 
 1. **Data Preparation**:
+
    - Collect and organize financial documents in the `data/` directory.
    - Preprocess the documents to ensure they are ready for embedding generation.
 
 2. **Environment Setup**:
+
    - Install Python 3.10+ and set up a virtual environment.
    - Install required Python packages listed in `requirements.txt`.
    - Install Docker on your machine.
 
 3. **Redis Setup**:
+
    - Set up a Redis Vector Database for storing embeddings.
    - Configure Redis for optimal performance with vector data.
 
 4. **Embedding Generation**:
+
    - Choose an appropriate HuggingFace Embedding Model.
    - Implement the embedding generation logic and store the embeddings in Redis.
 
 5. **RAG Implementation**:
+
    - Integrate the Gemini-1.5-pro model to enable RAG-based retrieval.
    - Develop the logic for processing user queries and retrieving relevant data.
 
 6. **User Interface**:
    - Build a Gradio interface to allow users to interact with the bot.
    - Design the interface to be user-friendly and intuitive.
-    
 7. **Containerization**:
+
    - Write a `Dockerfile` to containerize the application.
    - Test the Docker container to ensure the application runs smoothly.
 
