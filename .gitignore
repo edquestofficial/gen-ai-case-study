@@ -143,8 +143,8 @@ docs/_build/
 # Generated files
 generated/
 
-# Data files
-data/
+# # Data files
+# data/
 
 # Output files
 output/
