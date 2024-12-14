@@ -11,7 +11,7 @@ app = FastAPI()
 def read_root():
     # Get the current timestamp
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return {"message": f"Hello edquest", "timestamp": current_time}
+    return {"message": f"Hello Edquest"\n, "timestamp": current_time}
 
 # Define another route with a parameter
 @app.get("/greet/{name}")
