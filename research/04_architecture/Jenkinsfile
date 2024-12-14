@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Run the Python file (change to your script's name)
-                    sh 'python3 /home/ec2-user/jenkins/workspace/test_poc/research/04_architecture/index.py'
+                    sh 'python3 /var/jenkins_home/workspace/test_poc/research/04_architecture/index.py'
                 }
             }
         }
