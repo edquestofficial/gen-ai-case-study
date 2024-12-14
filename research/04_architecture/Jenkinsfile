@@ -18,7 +18,9 @@ pipeline {
                     // sh 'pip3 install fastapi uvicorn'
                     sh 'sudo apt-get install python3-fastapi python3-uvicorn'
                     //
-                    sh "sudo docker build -f ${SCRIPT_PATH}/research/04_architecture/Dockerfile -t fastapi-app ."
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/"
+                    //
+                    sh "sudo docker build -t fastapi-app ."
                     //
                     sh "sudo docker run -dt -p 8000:8000 fastapi-app"
 
