@@ -4,7 +4,7 @@ pipeline {
         // Define the path as an environment variable
         SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
     }
-    // stages {
+    stages {
     //     stage('Checkout') {
     //         steps {
     //             // Checkout code from GitHub repository
