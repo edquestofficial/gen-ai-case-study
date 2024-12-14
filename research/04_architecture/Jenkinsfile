@@ -1,35 +1,60 @@
 pipeline {
     agent any 
     stages {
-        stage('Static Analysis') {
+        stage('Checkout') {
             steps {
-                echo 'Run the static analysis to the code' 
+                // Checkout code from GitHub repository
+                git 'https://github.com/edquestofficial/gen-ai-case-study.git'
             }
         }
-        stage('Compile') {
+        
+        // stage('Set up Python Environment') {
+        //     steps {
+        //         script {
+        //             // Create a virtual environment (if needed) and install dependencies
+        //             sh 'python3 -m venv venv'   // Create a virtual environment
+        //             sh './venv/bin/pip install -r requirements.txt'  // Install dependencies (if a requirements.txt exists)
+        //         }
+        //     }
+        // }
+
+        stage('Run Python File') {
             steps {
-                echo 'Compile the source code' 
+                script {
+                    // Run the Python file (change to your script's name)
+                    sh 'python3 /home/ec2-user/gen-ai-case-study/research/04_architecture/index.py'
+                }
             }
         }
-        stage('Security Check') {
-            steps {
-                echo 'Run the security check against the application' 
-            }
-        }
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Run unit tests from the source code' 
-            }
-        }
-        stage('Run Integration Tests') {
-            steps {
-                echo 'Run only crucial integration tests from the source code' 
-            }
-        }
-        stage('Publish Artifacts') {
-            steps {
-                echo 'Save the assemblies generated from the compilation' 
-            }
-        }
+        // stage('Static Analysis') {
+        //     steps {
+        //         echo 'Run the static analysis to the code' 
+        //     }
+        // }
+        // stage('Compile') {
+        //     steps {
+        //         echo 'Compile the source code' 
+        //     }
+        // }
+        // stage('Security Check') {
+        //     steps {
+        //         echo 'Run the security check against the application' 
+        //     }
+        // }
+        // stage('Run Unit Tests') {
+        //     steps {
+        //         echo 'Run unit tests from the source code' 
+        //     }
+        // }
+        // stage('Run Integration Tests') {
+        //     steps {
+        //         echo 'Run only crucial integration tests from the source code' 
+        //     }
+        // }
+        // stage('Publish Artifacts') {
+        //     steps {
+        //         echo 'Save the assemblies generated from the compilation' 
+        //     }
+        // }
     }
 }
