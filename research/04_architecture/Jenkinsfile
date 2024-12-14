@@ -4,13 +4,13 @@ pipeline {
         // Define the path as an environment variable
         SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
     }
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from GitHub repository
-                git 'https://github.com/edquestofficial/gen-ai-case-study.git'
-            }
-        }
+    // stages {
+    //     stage('Checkout') {
+    //         steps {
+    //             // Checkout code from GitHub repository
+    //             git 'https://github.com/edquestofficial/gen-ai-case-study.git'
+    //         }
+    //     }
         stage('Run Python File') {
             steps {
                 script {
