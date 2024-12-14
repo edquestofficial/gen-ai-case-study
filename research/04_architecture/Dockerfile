@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir fastapi uvicorn
 EXPOSE 8000
 
 # Step 6: Command to run the FastAPI app using uvicorn
-CMD ["uvicorn", "index:app", "--host", "0.0.0.0", "--port", "8000"]
+#CMD ["uvicorn", "index:app", "--host", "0.0.0.0", "--port", "8000"]
