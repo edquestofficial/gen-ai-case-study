@@ -17,8 +17,10 @@ pipeline {
                     // Install FastAPI and Uvicorn first
                     // sh 'pip3 install fastapi uvicorn'
                     sh 'sudo apt-get install python3-fastapi python3-uvicorn'
-                    sh docker build -t fastapi-app .
-                    sh docker run -dt -p 8000:8000 fastapi-app
+                    //
+                    sh "sudo docker build -t fastapi-app ."
+                    //
+                    sh "sudo docker run -dt -p 8000:8000 fastapi-app"
 
                     // Run the Python file (change to your script's name)
                     sh "python3 ${SCRIPT_PATH}/research/04_architecture/index.py"
