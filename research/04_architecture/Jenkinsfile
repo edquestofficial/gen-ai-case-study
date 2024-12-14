@@ -15,7 +15,8 @@ pipeline {
             steps {
                 script {
                     // Install FastAPI and Uvicorn first
-                    sh 'pip3 install fastapi uvicorn'
+                    // sh 'pip3 install fastapi uvicorn'
+                    sh 'sudo apt-get install python3-fastapi python3-uvicorn'
 
                     // Run the Python file (change to your script's name)
                     sh "python3 ${SCRIPT_PATH}/research/04_architecture/index.py"
