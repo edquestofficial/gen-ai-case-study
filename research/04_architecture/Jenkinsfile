@@ -1,17 +1,21 @@
 pipeline {
     agent any 
+    environment {
+        // Define the path as an environment variable
+        SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
+    }
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         // Checkout code from GitHub repository
-        //         git 'https://github.com/edquestofficial/gen-ai-case-study.git'
-        //     }
-        // }
+        stage('Checkout') {
+            steps {
+                // Checkout code from GitHub repository
+                git 'https://github.com/edquestofficial/gen-ai-case-study.git'
+            }
+        }
         stage('Run Python File') {
             steps {
                 script {
                     // Run the Python file (change to your script's name)
-                    sh 'python3 /var/jenkins_home/workspace/test_poc/research/04_architecture/index.py'
+                    sh "python3 ${SCRIPT_PATH}/research/04_architecture/index.py"
                 }
             }
         }
