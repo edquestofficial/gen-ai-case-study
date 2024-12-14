@@ -14,6 +14,9 @@ pipeline {
         stage('Run Python File') {
             steps {
                 script {
+                    // Install FastAPI and Uvicorn first
+                    sh 'pip3 install fastapi uvicorn'
+
                     // Run the Python file (change to your script's name)
                     sh "python3 ${SCRIPT_PATH}/research/04_architecture/index.py"
                 }
