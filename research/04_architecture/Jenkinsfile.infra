@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'  // Set the AWS region
-        SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
+        SCRIPT_PATH = '/var/jenkins_home/workspace/aws_infra'
     }
 
     stages {
