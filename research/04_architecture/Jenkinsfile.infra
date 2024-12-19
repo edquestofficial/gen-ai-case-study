@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'  // Set the AWS region
+    }
+
+    stages {
+        //stage('Checkout') {
+        //    steps {
+        //        // Checkout Terraform code from GitHub repository
+        //        git 'https://github.com/your-username/your-repository.git'
+        //    }
+        //}
+
+        stage('Terraform Init') {
+            steps {
+                script {
+                    // Initialize Terraform
+                    sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    // Run Terraform plan
+                    sh 'terraform plan'
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    // Run Terraform apply with automatic approval
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Optional: Any cleanup or notifications go here
+            echo 'Terraform pipeline completed'
+        }
+    }
+}
