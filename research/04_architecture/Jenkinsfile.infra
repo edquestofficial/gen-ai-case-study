@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'  // Set the AWS region
+        SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
     }
 
     stages {
@@ -17,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Initialize Terraform
-                    sh 'terraform init'
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform init"
                 }
             }
         }
@@ -26,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Run Terraform plan
-                    sh 'terraform plan'
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform plan"
                 }
             }
         }
@@ -35,7 +36,7 @@ pipeline {
             steps {
                 script {
                     // Run Terraform apply with automatic approval
-                    sh 'terraform apply -auto-approve'
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform apply -auto-approve"
                 }
             }
         }
