@@ -19,10 +19,20 @@ lambda_client = boto3.client('lambda', region_name=AWS_REGION)
 def create_or_update_lambda_function(role_arn):
     """Create or update the Lambda function."""
     # Package the Lambda code
-    # file_name = "post_call_analysis.py" 
+    file_name = "post_call_analysis.py" 
     # file_path = os.path.join(LAMBDA_CODE_DIR, file_name)
-    current_dir = os.getcwd()
-    file_path = os.path.join(current_dir, "functions/post_call_analysis.py")
+
+    current_file_path = os.path.abspath(__file__)  # Path to the executing script
+    # Navigate to the desired directory relative to the script
+    base_directory = os.path.dirname(current_file_path)  # Current script's directory
+    lambda_functions_dir = os.path.join(base_directory, "functions")  # Target directory
+
+    # Construct the full path to the Lambda function file
+    file_path = os.path.join(lambda_functions_dir, "post_call_analysis.py")
+
+
+    # research\04_architecture\aws_lambda\functions\post_call_analysis.py
+    # /home/runner/work/gen-ai-case-study/gen-ai-case-study/functions/post_call_analysis.py
 
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}. Please verify the path and filename.")
