@@ -12,6 +12,8 @@ def create_s3_bucket(bucket_name, region=None):
     Returns:
     - str: Message indicating the result.
     """
+    print(f"bucket_name : {bucket_name}")
+    print(f"region : {region}")
     s3_client = boto3.client('s3', region_name=region)
     
     # List all buckets and check for the bucket name
