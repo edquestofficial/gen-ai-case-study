@@ -4,7 +4,7 @@ import os
 import json
 
 AWS_REGION = "us-east-1"
-LAMBDA_FUNCTION_NAME = "MyLambdaFunction"
+LAMBDA_FUNCTION_NAME = "PostCallAnalysis"
 ROLE_NAME = "LambdaExecutionRole"
 POLICY_NAME = "LambdaBasicPolicy"
 LAMBDA_CODE_DIR = "/functions"  # Update this path accordingly
