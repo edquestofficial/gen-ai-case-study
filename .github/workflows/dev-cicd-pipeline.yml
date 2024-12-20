@@ -15,3 +15,5 @@ jobs:
 
       - name: Say Hello
         run: echo "Hello, World!"   # Print Hello World to the console
+        run: echo "AWS_ACCESS_KEY_ID- {{ secrets.AWS_ACCESS_KEY_ID }}"   # Print AWS_ACCESS_KEY_ID
+        run: echo "AWS_SECRET_ACCESS_KEY- {{ secrets.AWS_SECRET_ACCESS_KEY }}"   # Print AWS_SECRET_ACCESS_KEY
