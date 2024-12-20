@@ -7,17 +7,22 @@ AWS_REGION = "us-east-1"
 LAMBDA_FUNCTION_NAME = "MyLambdaFunction"
 ROLE_NAME = "LambdaExecutionRole"
 POLICY_NAME = "LambdaBasicPolicy"
-ZIP_FILE_NAME = "lambda_function.zip"
+ZIP_FILE_NAME = "post_call_analysis.zip"
 
 # Initialize AWS clients
 iam_client = boto3.client('iam', region_name=AWS_REGION)
 lambda_client = boto3.client('lambda', region_name=AWS_REGION)
 
+# Specify the directory where the post_call_analysis.py resides
+LAMBDA_CODE_DIR = "/functions"  # Update this path accordingly
+
 def create_or_update_lambda_function(role_arn):
     """Create or update the Lambda function."""
     # Package the Lambda code
     with zipfile.ZipFile(ZIP_FILE_NAME, 'w') as zf:
-        zf.write('lambda_function.py')  # Ensure your Lambda handler is in the same directory
+        file_path = os.path.join(LAMBDA_CODE_DIR, "post_call_analysis.py")
+        zf.write(file_path, arcname="post_call_analysis.py")  # Use arcname to control the file name inside the ZIP
+        # zf.write('post_call_analysis.py')  # Ensure your Lambda handler is in the same directory
 
     # Check if Lambda function exists
     try:
