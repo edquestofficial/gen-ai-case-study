@@ -4,7 +4,7 @@ from aws_lambda import create_update_lambda
 
 if __name__ == "__main__":
     # Step 1: Create IAM role
-    role_arn = create_update_role()
+    role_arn = create_update_role.create_iam_role()
 
     # Step 2: Deploy Lambda function
-    create_update_lambda(role_arn)
+    create_update_lambda.create_or_update_lambda_function(role_arn)
