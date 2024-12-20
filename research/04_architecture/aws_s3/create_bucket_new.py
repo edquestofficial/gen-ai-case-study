@@ -17,8 +17,10 @@ def create_s3_bucket(bucket_name, region='us-east-1'):
 
         # Create a new bucket if it doesn't exist
         if region == 'us-east-1':
+            # For us-east-1, no location constraint needed
             s3.create_bucket(Bucket=bucket_name)
         else:
+            # For other regions, specify the location constraint
             s3.create_bucket(
                 Bucket=bucket_name,
                 CreateBucketConfiguration={'LocationConstraint': region}
