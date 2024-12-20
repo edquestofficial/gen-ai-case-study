@@ -15,19 +15,4 @@ def create_s3_bucket(bucket_name, region=None):
     print(f"bucket_name : {bucket_name}")
     print(f"region : {region}")
     s3_client = boto3.client('s3', region_name=region)
-    
-    # List all buckets and check for the bucket name
-    try:
-        buckets = s3_client.list_buckets()
-        bucket_names = [bucket['Name'] for bucket in buckets['Buckets']]
-        if bucket_name in bucket_names:
-            print(f"Bucket '{bucket_name}' already exists.")
-    except ClientError as e:
-        print(f"Error listing buckets: {e}")
-
-    # Proceed to create the bucket
-    try:
-        s3_client.create_bucket(Bucket=bucket_name)
-        print(f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'.")
-    except ClientError as create_error:
-        print(f"Failed to create bucket: {create_error}")
+    s3_client.create_bucket(Bucket=bucket_name)
