@@ -14,4 +14,4 @@ def create_s3_bucket(bucket_name, region='us-east-1'):
         print(f"Failed to create bucket: {e}")
         raise
 
-create_s3_bucket(bucket_name)
+# create_s3_bucket(bucket_name)
