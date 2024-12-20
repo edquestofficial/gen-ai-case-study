@@ -2,10 +2,8 @@ import boto3
 import json
 
 AWS_REGION = "us-east-1"
-LAMBDA_FUNCTION_NAME = "MyLambdaFunction"
 ROLE_NAME = "LambdaExecutionRole"
 POLICY_NAME = "LambdaBasicPolicy"
-ZIP_FILE_NAME = "lambda_function.zip"
 
 # Initialize AWS clients
 iam_client = boto3.client('iam', region_name=AWS_REGION)
