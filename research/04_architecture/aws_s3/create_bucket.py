@@ -25,13 +25,7 @@ def create_s3_bucket(bucket_name, region=None):
 
     # Proceed to create the bucket
     try:
-        if region and region != "us-east-1":
-            s3_client.create_bucket(
-                Bucket=bucket_name,
-                # CreateBucketConfiguration={'LocationConstraint': region}
-            )
-        else:
-            s3_client.create_bucket(Bucket=bucket_name)  # Default region (us-east-1)
+        s3_client.create_bucket(Bucket=bucket_name)
         print(f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'.")
     except ClientError as create_error:
         print(f"Failed to create bucket: {create_error}")
