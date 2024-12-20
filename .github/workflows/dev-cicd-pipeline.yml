@@ -25,7 +25,7 @@ jobs:
     # Step 3: Install dependencies
     - name: Install dependencies
       run: |
-        pip install boto3
+        pip install --upgrade boto3 botocore
 
     # Step 4: Deploy Lambda Function
     - name: Create AWS Infra
