@@ -3,7 +3,7 @@ from botocore.exceptions import ClientError
 
 def create_s3_bucket(bucket_name, region=None):
     """
-    Check if an S3 bucket exists, and create it if not.
+    Check if an S3 bucket exists by listing buckets and create it if not.
     
     Args:
     - bucket_name: The name of the bucket to create.
@@ -14,30 +14,24 @@ def create_s3_bucket(bucket_name, region=None):
     """
     s3_client = boto3.client('s3', region_name=region)
     
-    # Check if bucket exists
+    # List all buckets and check for the bucket name
     try:
-        response = s3_client.head_bucket(Bucket=bucket_name)
-        print(f"Bucket '{bucket_name}' already exists.")
+        buckets = s3_client.list_buckets()
+        bucket_names = [bucket['Name'] for bucket in buckets['Buckets']]
+        if bucket_name in bucket_names:
+            return f"Bucket '{bucket_name}' already exists."
     except ClientError as e:
-        if e.response['Error']['Code'] == '404':
-            # Bucket does not exist, proceed to create it
-            try:
-                if region:
-                    s3_client.create_bucket(
-                        Bucket=bucket_name,
-                        CreateBucketConfiguration={'LocationConstraint': region}
-                    )
-                else:
-                    s3_client.create_bucket(Bucket=bucket_name)  # Default region
-                print(f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'.")
-            except ClientError as create_error:
-                print(f"Failed to create bucket: {create_error}")
-        else:
-            print(f"Error checking bucket existence: {e}")
+        return f"Error listing buckets: {e}"
 
-# # Example usage
-# if __name__ == "__main__":
-#     bucket_name = "my-unique-bucket-name-12345"  # Replace with your bucket name
-#     region = "us-east-1"  # Replace with your desired region or leave None for default region
-#     result = create_s3_bucket(bucket_name, region)
-#     print(result)
+    # Proceed to create the bucket
+    try:
+        if region and region != "us-east-1":
+            s3_client.create_bucket(
+                Bucket=bucket_name,
+                CreateBucketConfiguration={'LocationConstraint': region}
+            )
+        else:
+            s3_client.create_bucket(Bucket=bucket_name)  # Default region (us-east-1)
+        return f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'."
+    except ClientError as create_error:
+        return f"Failed to create bucket: {create_error}"
