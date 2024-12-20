@@ -40,19 +40,8 @@ jobs:
         region = "${{ secrets.AWS_REGION }}"  # Replace with your region or use GitHub Secrets
 
         def create_s3_bucket(bucket_name, region='us-east-1'):
-            try:
-                s3_client = boto3.client("s3", region_name=region)
-                if region != "us-east-1":
-                    s3_client.create_bucket(
-                        Bucket=bucket_name,
-                        CreateBucketConfiguration={'LocationConstraint': region}
-                    )
-                else:
-                    s3_client.create_bucket(Bucket=bucket_name)
-                print(f"Bucket '{bucket_name}' created successfully in region '{region}'.")
-            except ClientError as e:
-                print(f"Failed to create bucket: {e}")
-                raise
+            print(f"bucket_name --- ", bucket_name)
+            print(f"region --- ", region)
 
         create_s3_bucket(bucket_name, region)
         EOF
