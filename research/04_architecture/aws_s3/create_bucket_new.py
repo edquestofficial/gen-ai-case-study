@@ -52,10 +52,12 @@
 import boto3
 from botocore.exceptions import ClientError
 
-# bucket_name = "my-unique-bucket-name-12345"  # Replace with your bucket name
-# region = "us-west-2"  # Specify your desired region
+bucket_name = "my-unique-bucket-name-12345"  # Replace with your bucket name
+region = "us-west-2"  # Specify your desired region
 
 def create_s3_bucket(bucket_name, region='us-east-1'):
+    print(region)
+    print(bucket_name)
     try:
         s3_client = boto3.client("s3", region_name=region)
 
