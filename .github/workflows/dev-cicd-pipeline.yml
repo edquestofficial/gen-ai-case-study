@@ -28,7 +28,7 @@ jobs:
         pip install boto3
 
     # Step 4: Deploy Lambda Function
-    - name: Deploy Lambda Function
+    - name: Create AWS Infra
       # run: python deploy_lambda.py
       # run: python D:\workspace\GenAI\github\gen-ai-case-study\research\04_architecture\create_aws_infra.py
       run: python research/04_architecture/create_aws_infra.py

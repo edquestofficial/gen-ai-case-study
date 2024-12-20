@@ -17,7 +17,7 @@ def create_s3_bucket(bucket_name, region=None):
     # Check if bucket exists
     try:
         response = s3_client.head_bucket(Bucket=bucket_name)
-        return f"Bucket '{bucket_name}' already exists."
+        print(f"Bucket '{bucket_name}' already exists.")
     except ClientError as e:
         if e.response['Error']['Code'] == '404':
             # Bucket does not exist, proceed to create it
@@ -29,11 +29,11 @@ def create_s3_bucket(bucket_name, region=None):
                     )
                 else:
                     s3_client.create_bucket(Bucket=bucket_name)  # Default region
-                return f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'."
+                print(f"Bucket '{bucket_name}' created successfully in region '{region or 'us-east-1'}'.")
             except ClientError as create_error:
-                return f"Failed to create bucket: {create_error}"
+                print(f"Failed to create bucket: {create_error}")
         else:
-            return f"Error checking bucket existence: {e}"
+            print(f"Error checking bucket existence: {e}")
 
 # # Example usage
 # if __name__ == "__main__":
