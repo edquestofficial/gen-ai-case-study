@@ -42,8 +42,13 @@ jobs:
         def create_s3_bucket(bucket_name, region='us-east-1'):
             print(f"bucket_name --- ", bucket_name)
             print(f"region --- ", region)
+            try:
+              s3_client = boto3.client("s3", region_name=region)
+            except ClientError as e:
+              print(f"Failed to create bucket: {e}")
+              raise
 
-        create_s3_bucket(bucket_name, region)
+        create_s3_bucket(bucket_name)
         EOF
     # Step 5: Success Notification
     - name: Notify success
