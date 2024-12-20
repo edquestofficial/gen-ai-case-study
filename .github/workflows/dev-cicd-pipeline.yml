@@ -31,7 +31,7 @@ jobs:
     - name: Deploy Lambda Function
       # run: python deploy_lambda.py
       # run: python D:\workspace\GenAI\github\gen-ai-case-study\research\04_architecture\create_aws_infra.py
-      run: python research\04_architecture\create_aws_infra.py
+      run: python research/04_architecture/create_aws_infra.py
 
     # Step 5: Success Notification
     - name: Notify success
