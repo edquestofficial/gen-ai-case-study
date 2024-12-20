@@ -14,12 +14,14 @@ def create_s3_bucket(bucket_name, region='us-east-1'):
         
         # Handle region-specific bucket creation
         if region != "us-east-1":
+            print("you are into if statement")
             # Add LocationConstraint for non-us-east-1 regions
             s3_client.create_bucket(
                 Bucket=bucket_name,
                 CreateBucketConfiguration={'LocationConstraint': region}
             )
         else:
+            print("you are into else statement")
             # No LocationConstraint required for us-east-1
             s3_client.create_bucket(Bucket=bucket_name)
 
