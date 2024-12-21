@@ -9,7 +9,7 @@ ROLE_NAME = "LambdaExecutionRole"
 POLICY_NAME = "LambdaBasicPolicy"
 LAMBDA_CODE_DIR = "/functions"  # Update this path accordingly
 ZIP_FILE_NAME = "post_call_analysis.zip"
-S3_BUCKET_NAME = "my-edquest-bucket-name-111"  # Replace with your S3 bucket name
+S3_BUCKET_NAME = "my-edquest-bucket-name-1111"  # Replace with your S3 bucket name
 S3_EVENT = "s3:ObjectCreated:*"  # Event to trigger Lambda function on object creation
 
 # Initialize AWS clients
