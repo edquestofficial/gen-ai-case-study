@@ -7,7 +7,7 @@ IAM_ROLES = {
             {
                 "Effect": "Allow",
                 "Principal": {"Service": "lambda.amazonaws.com"},
-                "Action": "sts:AssumeRole",
+                "Action": ["sts:AssumeRole"],
             }
         ]
     }
