@@ -59,6 +59,15 @@ def create_iam_role(role_config):
                 "Effect": "Allow",
                 "Action": "cloudwatch:PutMetricData",
                 "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": ["transcribe:StartTranscriptionJob",
+                            "transcribe:GetTranscriptionJob",
+                            "transcribe:ListTranscriptionJobs",
+                            "transcribe:DeleteTranscriptionJob"
+                        ]
+                "Resource": "arn:aws:transcribe:us-east-1:730335580467:*"
             }
         ]
     }
