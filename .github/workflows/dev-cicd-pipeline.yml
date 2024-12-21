@@ -1,0 +1,38 @@
+name: AWS CICD pipeline
+
+on:
+  push:        # Trigger workflow on push events
+    branches:
+      - main   # Specify the branch to trigger the workflow (e.g., 'main')
+
+jobs:
+  deploy-lambda:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Setup AWS CLI
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: |
+        pip install --upgrade boto3 botocore
+
+    # Step 4: Deploy Lambda Function
+    - name: Create AWS Infra
+      # run: python deploy_lambda.py
+      # run: python D:\workspace\GenAI\github\gen-ai-case-study\research\04_architecture\create_aws_infra.py
+      run: python research/04_architecture/create_aws_infra.py
+
+    # Step 5: Success Notification
+    - name: Notify success
+      run: echo "AWS Lambda Function deployed successfully!"

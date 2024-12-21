@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'  // Set the AWS region
+        SCRIPT_PATH = '/var/jenkins_home/workspace/aws_infra'
+    }
+
+    stages {
+        //stage('Checkout') {
+        //    steps {
+        //        // Checkout Terraform code from GitHub repository
+        //        git 'https://github.com/your-username/your-repository.git'
+        //    }
+        //}
+
+        stage('Terraform Init') {
+            steps {
+                script {
+                    // Initialize Terraform
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform init"
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    // Run Terraform plan
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform plan"
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    // Run Terraform apply with automatic approval
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && terraform apply -auto-approve"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Optional: Any cleanup or notifications go here
+            echo 'Terraform pipeline completed'
+        }
+    }
+}
