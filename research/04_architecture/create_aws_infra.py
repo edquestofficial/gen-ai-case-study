@@ -7,7 +7,8 @@ if __name__ == "__main__":
     # Step 1: Create IAM role
     bucket_name = "my-edquest-bucket-name-1111"
     region = "us-east-1"
-    create_bucket.create_s3_bucket(bucket_name, region)
+    # create_bucket.create_s3_bucket(bucket_name, region)
+    create_bucket.create_s3_bucket("my-edquest-bucket-name-1111", "us-east-1")
 
     # Create IAM ROLE
     AUDIO_TO_TRANSCRIPT_ROLE = IAM_ROLES["AUDIO_TO_TRANSCRIPT_ROLE"]
