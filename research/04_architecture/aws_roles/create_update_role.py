@@ -26,7 +26,19 @@ def create_iam_role(role_config):
         pass
 
     # Create the role
-    trust_policy= {
+
+    trust_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "lambda.amazonaws.com"},
+                "Action": "sts:AssumeRole"  # Only this action in the AssumeRolePolicyDocument
+            }
+        ]
+    }
+
+    permission_policy= {
         "Version": "2012-10-17",
         "Statement": [
             {
@@ -52,6 +64,12 @@ def create_iam_role(role_config):
         AssumeRolePolicyDocument=json.dumps(trust_policy)
     )
     print(f"Created IAM Role: {role_name}")
+
+    iam_client.put_role_policy(
+    RoleName=role_name,
+    PolicyName="LambdaPermissionsPolicy",  # Give the policy a name
+    PolicyDocument=json.dumps(permission_policy)
+    )
 
     # Attach basic Lambda execution policy
     iam_client.attach_role_policy(
