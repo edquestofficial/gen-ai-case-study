@@ -92,7 +92,7 @@ def add_s3_trigger_to_lambda():
             StatementId="S3TriggerPermission",  # Unique ID for this permission
             Action="lambda:InvokeFunction",
             Principal="s3.amazonaws.com",
-            SourceArn=f"arn:aws:s3:::{S3_BUCKET_NAME}/audio/",
+            SourceArn=f"arn:aws:s3:::{S3_BUCKET_NAME}",
         )
         print(f"Permission granted to trigger {LAMBDA_FUNCTION_NAME} from S3 bucket {S3_BUCKET_NAME}")
 
@@ -108,7 +108,7 @@ def add_s3_trigger_to_lambda():
                             "Key": {
                                 "FilterRules": [
                                     {"Name": "prefix", "Value": ""},
-                                    {"Name": "suffix", "Value": "*.mp3"}
+                                    {"Name": "suffix", "Value": "dialog.mp3"}
                                 ]
                             }
                         }
