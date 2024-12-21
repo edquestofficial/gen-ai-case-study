@@ -2,7 +2,7 @@ import boto3
 import json
 
 AWS_REGION = "us-east-1"
-ROLE_NAME = "LambdaExecutionRole"
+ROLE_NAME = "LambdaExecutionRole1"
 POLICY_NAME = "LambdaBasicPolicy"
 
 # Initialize AWS clients
@@ -25,17 +25,17 @@ def create_iam_role(role_config):
     except iam_client.exceptions.NoSuchEntityException:
         pass
 
-    # # Define the trust policy for Lambda execution
-    # trust_policy = {
-    #     "Version": "2012-10-17",
-    #     "Statement": [
-    #         {
-    #             "Effect": "Allow",
-    #             "Principal": {"Service": "lambda.amazonaws.com"},
-    #             "Action": "sts:AssumeRole"  # Lambda service can assume this role
-    #         }
-    #     ]
-    # }
+    # Define the trust policy for Lambda execution
+    trust_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "lambda.amazonaws.com"},
+                "Action": "sts:AssumeRole"  # Lambda service can assume this role
+            }
+        ]
+    }
 
     # Define the permission policy
     permission_policy = {
