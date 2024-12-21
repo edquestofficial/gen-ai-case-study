@@ -59,7 +59,7 @@ def create_iam_role(role_config):
                 "Resource": [
                     # "arn:aws:s3:::my-edquest-bucket-name-1111",
                     # "arn:aws:s3:::my-edquest-bucket-name-1111/",
-                    "arn:aws:s3:::my-edquest-bucket-name-1111/audio/*"
+                    "arn:aws:s3:::my-edquest-bucket-name-1111/audio/*",
                     "arn:aws:s3:::my-edquest-bucket-name-1111/audio-to-text/*"
                 ]
             },
