@@ -29,7 +29,7 @@ def lambda_handler(event, context):
             MediaFormat='mp3',
             LanguageCode='en-US',
             OutputBucketName="my-edquest-bucket-name-1111",
-            # OutputKey=audio_to_text_dir,
+            OutputKey="audio-to-text/",
             Settings={
                 'ShowSpeakerLabels': True,
                 'MaxSpeakerLabels': 2
