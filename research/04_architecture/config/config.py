@@ -7,8 +7,18 @@ IAM_ROLES = {
             {
                 "Effect": "Allow",
                 "Principal": {"Service": "lambda.amazonaws.com"},
+                "Action": [
+                  "logs:PutLogEvents",
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream"
+                ],
+                "Resource": "arn:aws:logs:*:*:*"
+            },
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "lambda.amazonaws.com"},
                 "Action": ["s3:GetObject", "s3:PutObject"],
-                # "Resource": "arn:aws:s3:::your-bucket-name/*"
+                "Resource": "arn:aws:s3:::*/*"
             },
         ]
     }
@@ -21,7 +31,9 @@ IAM_ROLES = {
             {
                 "Effect": "Allow",
                 "Principal": {"Service": "lambda.amazonaws.com"},
-                "Action": [],
+                "Action": ["s3:getObject",
+                           "s3:putObject",
+                           "bedrock"],
             }
         ]
     }
