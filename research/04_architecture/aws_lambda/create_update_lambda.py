@@ -70,7 +70,7 @@ def create_or_update_lambda_function(role_arn):
             FunctionName=LAMBDA_FUNCTION_NAME,
             Runtime="python3.9",
             Role=role_arn,
-            Handler="lambda_function.lambda_handler",
+            Handler="post_call_analysis.lambda_handler",
             Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
             Timeout=15,
             MemorySize=128
