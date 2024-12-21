@@ -37,13 +37,13 @@ def create_iam_role(role_config):
                   "logs:CreateLogGroup",
                   "logs:CreateLogStream"
                 ],
-                "Resource": "arn:aws:logs:*:*:*"
+                # "Resource": "arn:aws:logs:*:*:*"
             },
             {
                 "Effect": "Allow",
                 "Principal": {"Service": "lambda.amazonaws.com"},
                 "Action": ["s3:GetObject", "s3:PutObject"],
-                "Resource": "arn:aws:s3:::*/*"
+                # "Resource": "arn:aws:s3:::*/*"
             },
         ]
     }
