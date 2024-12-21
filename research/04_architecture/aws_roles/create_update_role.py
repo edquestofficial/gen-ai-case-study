@@ -3,7 +3,6 @@ import json
 
 AWS_REGION = "us-east-1"
 # ROLE_NAME = "LambdaExecutionRole"
-
 POLICY_NAME = "LambdaBasicPolicy"
 
 # Initialize AWS clients
@@ -13,6 +12,8 @@ lambda_client = boto3.client('lambda', region_name=AWS_REGION)
 def create_iam_role(role_config):
     role_name = role_config["role_name"]
     trust_policy = role_config["trust_policy"]
+    print("role_name ---- ", role_name)
+    print("trust_policy ---- ", trust_policy)
 
     """Create IAM Role with basic Lambda execution permissions."""
     try:

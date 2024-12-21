@@ -11,6 +11,7 @@ if __name__ == "__main__":
 
     # Create IAM ROLE
     AUDIO_TO_TRANSCRIPT_ROLE = IAM_ROLES["AUDIO_TO_TRANSCRIPT_ROLE"]
+    print("AUDIO_TO_TRANSCRIPT_ROLE ---- ", AUDIO_TO_TRANSCRIPT_ROLE)
 
     audio_to_transcript_role_arn = create_update_role.create_iam_role(AUDIO_TO_TRANSCRIPT_ROLE)
     
