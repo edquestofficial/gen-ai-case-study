@@ -21,7 +21,7 @@ def lambda_handler(event, context):
         print("CONTENT TYPE: " + response['ContentType'])
         transcribe_client = boto3.client('transcribe', region_name='us-east-1')
         job_name = 'transcription-job-' + str(uuid.uuid4())
-        audio_file_uri = f's3://my-edquest-bucket-name-1111/dialog.mp3'
+        audio_file_uri = f's3://my-edquest-bucket-name-1111/audio/dialog.mp3'
 
         response = transcribe_client.start_transcription_job(
             TranscriptionJobName=job_name,

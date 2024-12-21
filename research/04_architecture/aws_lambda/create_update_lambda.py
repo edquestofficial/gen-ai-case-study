@@ -104,6 +104,14 @@ def add_s3_trigger_to_lambda():
                     {
                         'LambdaFunctionArn': f"arn:aws:lambda:{AWS_REGION}:{aws_account_id}:function:{LAMBDA_FUNCTION_NAME}",
                         'Events': [S3_EVENT],  # Specify the event you want to trigger the Lambda function
+                        "Filter": {
+                            "Key": {
+                                "FilterRules": [
+                                    {"Name": "prefix", "Value": ""},
+                                    {"Name": "suffix", "Value": "*.mp3"}
+                                ]
+                            }
+                        }
                     },
                 ],
             },
