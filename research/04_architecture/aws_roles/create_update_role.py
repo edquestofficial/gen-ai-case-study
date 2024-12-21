@@ -26,17 +26,27 @@ def create_iam_role(role_config):
         pass
 
     # Create the role
-    # trust_policy = {
-    #     "Version": "2012-10-17",
-    #     "Statement": [
-    #         {
-    #             "Effect": "Allow",
-    #             "Principal": {"Service": "lambda.amazonaws.com"},
-    #             "Action": ["s3:getObject",
-    #                        "s3:putObject"],
-    #         }
-    #     ]
-    # }
+    trust_policy= {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "lambda.amazonaws.com"},
+                "Action": [
+                  "logs:PutLogEvents",
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream"
+                ],
+                "Resource": "arn:aws:logs:*:*:*"
+            },
+            {
+                "Effect": "Allow",
+                "Principal": {"Service": "lambda.amazonaws.com"},
+                "Action": ["s3:GetObject", "s3:PutObject"],
+                "Resource": "arn:aws:s3:::*/*"
+            },
+        ]
+    }
     role = iam_client.create_role(
         RoleName=role_name,
         AssumeRolePolicyDocument=json.dumps(trust_policy)
