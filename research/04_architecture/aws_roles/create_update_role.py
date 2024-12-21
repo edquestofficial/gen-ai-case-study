@@ -14,6 +14,7 @@ def create_iam_role(role_config):
     trust_policy = role_config["trust_policy"]
     print("role_name ---- ", role_name)
     print("trust_policy ---- ", trust_policy)
+    print("trust_policy ---- ", type(trust_policy))
 
     """Create IAM Role with basic Lambda execution permissions."""
     try:
