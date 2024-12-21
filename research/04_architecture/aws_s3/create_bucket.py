@@ -10,6 +10,7 @@ def create_s3_bucket(bucket_name, region='us-east-1'):
     try:
         s3_client = boto3.client("s3", region_name=region)
         s3_client.create_bucket(Bucket=bucket_name)
+        print("Bucket created successfuly ---------")
     except ClientError as e:
         print(f"Failed to create bucket: {e}")
         raise
