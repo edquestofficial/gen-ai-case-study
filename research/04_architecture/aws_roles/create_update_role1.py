@@ -52,8 +52,13 @@ def create_iam_role(role_config):
             },
             {
                 "Effect": "Allow",
-                "Action": ["s3:GetObject", "s3:PutObject"],
-                "Resource": "arn:aws:s3:::*/*"
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::my-edquest-bucket-name-1111/audio/*.mp3"
+            },
+            {
+                "Effect": "Allow",
+                "Action": "s3:PutObject",
+                "Resource": "arn:aws:s3:::my-edquest-bucket-name-1111/audio-to-text/*.json"
             },
             {
                 "Effect": "Allow",
