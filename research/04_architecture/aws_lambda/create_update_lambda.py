@@ -107,8 +107,8 @@ def add_s3_trigger_to_lambda():
                         "Filter": {
                             "Key": {
                                 "FilterRules": [
-                                    {"Name": "prefix", "Value": ""},
-                                    {"Name": "suffix", "Value": "dialog.mp3"}
+                                    {"Name": "suffix", "Value": "dialog.mp3"},
+                                    # {"Name": "prefix", "Value": ""},
                                 ]
                             }
                         }
