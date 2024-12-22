@@ -22,7 +22,7 @@ def create_iam_role(role_config):
         # Check if role already exists
         role = iam_client.get_role(RoleName=role_name)
         print(f"Role {role_name} already exists.")
-        return role['Role']['Arn']
+        # return role['Role']['Arn']
     except iam_client.exceptions.NoSuchEntityException:
         pass
 
