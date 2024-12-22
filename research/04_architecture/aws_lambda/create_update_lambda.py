@@ -86,6 +86,8 @@ def add_s3_trigger_to_lambda():
     try:
         # Get the AWS Account ID
         aws_account_id = get_aws_account_id()
+        print("##################")
+        print(f"aws account id : {aws_account_id}")
         # Grant the Lambda function permission to be triggered by the S3 bucket
         lambda_client.add_permission(
             FunctionName=LAMBDA_FUNCTION_NAME,
@@ -94,6 +96,8 @@ def add_s3_trigger_to_lambda():
             Principal="s3.amazonaws.com",
             SourceArn=f"arn:aws:s3:::{S3_BUCKET_NAME}",
         )
+        # "arn:aws:s3:::my-edquest-bucket-name-1111"
+        print(f"arn:aws:s3:::{S3_BUCKET_NAME}")
         print(f"Permission granted to trigger {LAMBDA_FUNCTION_NAME} from S3 bucket {S3_BUCKET_NAME}")
 
         # Add S3 bucket notification to trigger Lambda on object creation
