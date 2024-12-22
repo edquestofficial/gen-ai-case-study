@@ -29,13 +29,13 @@ def lambda_handler(event, context):
             MediaFormat='mp3',
             LanguageCode='en-US',
             OutputBucketName="my-edquest-bucket-name-1111",
-            OutputKey="audio-to-text/",
+            # OutputKey="audio-to-text/",
             Settings={
                 'ShowSpeakerLabels': True,
                 'MaxSpeakerLabels': 2
             }
         )
-        print("CONTENT TYPE: " + response)
+        print(f"CONTENT TYPE:  {response}")
         # return response['ContentType']
     except Exception as e:
         print(e)
