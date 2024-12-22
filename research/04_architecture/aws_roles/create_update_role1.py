@@ -18,13 +18,13 @@ def create_iam_role(role_config):
     print("trust_policy ---- ", type(trust_policy))
 
     """Create IAM Role with basic Lambda execution permissions."""
-    # try:
-    #     # Check if role already exists
-    #     role = iam_client.get_role(RoleName=role_name)
-    #     print(f"Role {role_name} already exists.")
-    #     return role['Role']['Arn']
-    # except iam_client.exceptions.NoSuchEntityException:
-    #     pass
+    try:
+        # Check if role already exists
+        role = iam_client.get_role(RoleName=role_name)
+        print(f"Role {role_name} already exists.")
+        return role['Role']['Arn']
+    except iam_client.exceptions.NoSuchEntityException:
+        pass
 
     # Define the trust policy for Lambda execution
     trust_policy = {
@@ -32,7 +32,9 @@ def create_iam_role(role_config):
         "Statement": [
             {
                 "Effect": "Allow",
-                "Principal": {"Service": "lambda.amazonaws.com"},
+                "Principal": {
+                    "Service": "lambda.amazonaws.com"
+                },
                 "Action": "sts:AssumeRole"  # Lambda service can assume this role
             }
         ]
