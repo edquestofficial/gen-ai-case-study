@@ -1,6 +1,6 @@
 IAM_ROLES = {
-  "AUDIO_TO_TRANSCRIPT_ROLE": {
-    "role_name": "AUDIO_TO_TRANSCRIPT_ROLE",
+  "Audio_To_Transcript_Role": {
+    "role_name": "Audio_To_Transcript_Role",
     "trust_policy": {
         "Version": "2012-10-17",
         "Statement": [

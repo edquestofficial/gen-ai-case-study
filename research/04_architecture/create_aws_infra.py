@@ -11,10 +11,10 @@ if __name__ == "__main__":
     create_bucket.create_s3_bucket("my-edquest-bucket-name-1111", "us-east-1")
 
     # Create IAM ROLE
-    AUDIO_TO_TRANSCRIPT_ROLE = IAM_ROLES["AUDIO_TO_TRANSCRIPT_ROLE"]
-    print("AUDIO_TO_TRANSCRIPT_ROLE ---- ", AUDIO_TO_TRANSCRIPT_ROLE)
+    Audio_To_Transcript_Role = IAM_ROLES["Audio_To_Transcript_Role"]
+    print("Audio_To_Transcript_Role ---- ", Audio_To_Transcript_Role)
 
-    audio_to_transcript_role_arn = create_update_role1.create_iam_role(AUDIO_TO_TRANSCRIPT_ROLE)
+    audio_to_transcript_role_arn = create_update_role1.create_iam_role(Audio_To_Transcript_Role)
     
     # Step 2: Deploy Lambda function
     create_update_lambda.create_or_update_lambda_function(audio_to_transcript_role_arn)
