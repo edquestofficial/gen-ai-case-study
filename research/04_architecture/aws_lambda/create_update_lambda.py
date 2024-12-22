@@ -2,6 +2,7 @@ import boto3
 import zipfile
 import os
 import json
+import uuid
 
 AWS_REGION = "us-east-1"
 LAMBDA_FUNCTION_NAME = "PostCallAnalysis"
@@ -91,7 +92,7 @@ def add_s3_trigger_to_lambda():
         # Grant the Lambda function permission to be triggered by the S3 bucket
         lambda_client.add_permission(
             FunctionName=LAMBDA_FUNCTION_NAME,
-            StatementId="S3TriggerPermission",  # Unique ID for this permission
+            StatementId=f"S3TriggerPermission{str(uuid.uuid4())}",  # Unique ID for this permission
             Action="lambda:InvokeFunction",
             Principal="s3.amazonaws.com",
             SourceArn=f"arn:aws:s3:::{S3_BUCKET_NAME}",
