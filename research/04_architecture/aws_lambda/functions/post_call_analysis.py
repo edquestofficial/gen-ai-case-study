@@ -32,14 +32,14 @@ def lambda_handler(event, context):
         print(f"File copied from {source_key} to {destination_key}")
         # transcribe_client = boto3.client('transcribe', region_name='us-east-1')
         # job_name = 'transcription-job-' + str(uuid.uuid4())
-        # audio_file_uri = f's3://my-edquest-bucket-name-1111/audio/dialog.mp3'
+        # audio_file_uri = f's3://post-call-analysis-1234/audio/dialog.mp3'
 
         # response = transcribe_client.start_transcription_job(
         #     TranscriptionJobName=job_name,
         #     Media={'MediaFileUri': audio_file_uri},
         #     MediaFormat='mp3',
         #     LanguageCode='en-US',
-        #     OutputBucketName="my-edquest-bucket-name-1111",
+        #     OutputBucketName="post-call-analysis-1234",
         #     # OutputKey="audio-to-text/",
         #     Settings={
         #         'ShowSpeakerLabels': True,

@@ -10,7 +10,7 @@ ROLE_NAME = "LambdaExecutionRole"
 POLICY_NAME = "LambdaBasicPolicy"
 LAMBDA_CODE_DIR = "/functions"  # Update this path accordingly
 ZIP_FILE_NAME = "post_call_analysis.zip"
-S3_BUCKET_NAME = "my-edquest-bucket-name-1111"  # Replace with your S3 bucket name
+S3_BUCKET_NAME = "post-call-analysis-1234"  # Replace with your S3 bucket name
 S3_EVENT = "s3:ObjectCreated:*"  # Event to trigger Lambda function on object creation
 
 # Initialize AWS clients
@@ -97,7 +97,7 @@ def add_s3_trigger_to_lambda():
             Principal="s3.amazonaws.com",
             SourceArn=f"arn:aws:s3:::{S3_BUCKET_NAME}",
         )
-        # "arn:aws:s3:::my-edquest-bucket-name-1111"
+        # "arn:aws:s3:::post-call-analysis-1234"
         print(f"arn:aws:s3:::{S3_BUCKET_NAME}")
         print(f"Permission granted to trigger {LAMBDA_FUNCTION_NAME} from S3 bucket {S3_BUCKET_NAME}")
 
