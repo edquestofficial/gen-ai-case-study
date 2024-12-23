@@ -39,3 +39,13 @@ IAM_ROLES = {
     }
   },
 }
+
+CONFIG= {
+    "Audio_To_Transcript" : {
+        "s3" : {
+            "bucket_name" : "edquest_post_call_analysis",
+            "directory_list" : ["audio", "audio_processed", "transcript"],
+            "region" : "us-east-1",
+        }
+    }
+}
