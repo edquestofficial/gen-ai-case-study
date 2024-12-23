@@ -19,22 +19,24 @@ def lambda_handler(event, context):
     try:
         response = s3.get_object(Bucket=bucket, Key=key)
         print("CONTENT TYPE: " + response['ContentType'])
-        transcribe_client = boto3.client('transcribe', region_name='us-east-1')
-        job_name = 'transcription-job-' + str(uuid.uuid4())
-        audio_file_uri = f's3://my-edquest-bucket-name-1111/audio/dialog.mp3'
+        print("#########################################")
+        print(f"event details : {event['Records'][0]}")
+        # transcribe_client = boto3.client('transcribe', region_name='us-east-1')
+        # job_name = 'transcription-job-' + str(uuid.uuid4())
+        # audio_file_uri = f's3://my-edquest-bucket-name-1111/audio/dialog.mp3'
 
-        response = transcribe_client.start_transcription_job(
-            TranscriptionJobName=job_name,
-            Media={'MediaFileUri': audio_file_uri},
-            MediaFormat='mp3',
-            LanguageCode='en-US',
-            OutputBucketName="my-edquest-bucket-name-1111",
-            # OutputKey="audio-to-text/",
-            Settings={
-                'ShowSpeakerLabels': True,
-                'MaxSpeakerLabels': 2
-            }
-        )
+        # response = transcribe_client.start_transcription_job(
+        #     TranscriptionJobName=job_name,
+        #     Media={'MediaFileUri': audio_file_uri},
+        #     MediaFormat='mp3',
+        #     LanguageCode='en-US',
+        #     OutputBucketName="my-edquest-bucket-name-1111",
+        #     # OutputKey="audio-to-text/",
+        #     Settings={
+        #         'ShowSpeakerLabels': True,
+        #         'MaxSpeakerLabels': 2
+        #     }
+        # )
         print(f"CONTENT TYPE:  {response}")
         # return response['ContentType']
     except Exception as e:
