@@ -46,6 +46,12 @@ CONFIG= {
             "bucket_name" : "edquest_post_call_analysis",
             "directory_list" : ["audio", "audio_processed", "transcript"],
             "region" : "us-east-1",
+        },
+        "lambda": {
+
+        },
+        "iam_role": {
+            
         }
     }
 }
