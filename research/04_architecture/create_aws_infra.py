@@ -12,6 +12,7 @@ if __name__ == "__main__":
     s3_config = CONFIG["Audio_To_Transcript"]["s3"]
     
     create_edquest_bucket.create_s3_bucket(s3_config)
+    
     # create_bucket.create_s3_bucket("post-call-analysis-1234", "us-east-1")
 
     # # Create IAM ROLE
