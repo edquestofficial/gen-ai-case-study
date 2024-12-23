@@ -7,7 +7,7 @@ import uuid
 
 print('Loading function')
 
-s3 = boto3.client('s3')
+s3_client = boto3.client('s3')
 
 
 def lambda_handler(event, context):
@@ -16,11 +16,20 @@ def lambda_handler(event, context):
     # Get the object from the event and show its content type
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
+    source_bucket = event['Records'][0]['s3']['bucket']['name']
+    source_key = event['Records'][0]['s3']['object']['key']
+    destination_bucket = source_bucket  # Default to the same bucket
+    destination_key = source_key.replace("audio/", "audio-to-text/")
     try:
-        response = s3.get_object(Bucket=bucket, Key=key)
+        response = s3_client.get_object(Bucket=bucket, Key=key)
         print("CONTENT TYPE: " + response['ContentType'])
         print("#########################################")
         print(f"event details : {event['Records'][0]}")
+
+        copy_source = {'Bucket': source_bucket, 'Key': source_key}
+        s3_client.copy_object(CopySource=copy_source, Bucket=destination_bucket, Key=destination_key)
+        print("#########################################")
+        print(f"File copied from {source_key} to {destination_key}")
         # transcribe_client = boto3.client('transcribe', region_name='us-east-1')
         # job_name = 'transcription-job-' + str(uuid.uuid4())
         # audio_file_uri = f's3://my-edquest-bucket-name-1111/audio/dialog.mp3'
