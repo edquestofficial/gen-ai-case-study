@@ -130,3 +130,4 @@ def add_s3_trigger_to_lambda():
 # to allow S3 actions (like "s3:GetObject") if it will interact with objects.
 print(f"hello world")
 print(f"hello world")
+print(f"hello world")
