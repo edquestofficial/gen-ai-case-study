@@ -129,3 +129,4 @@ def add_s3_trigger_to_lambda():
 # You may also need to update the IAM policy for your Lambda function's role
 # to allow S3 actions (like "s3:GetObject") if it will interact with objects.
 print(f"hello world")
+print(f"hello world")
