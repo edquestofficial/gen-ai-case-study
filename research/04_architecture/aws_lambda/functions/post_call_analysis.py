@@ -20,7 +20,6 @@ def lambda_handler(event, context):
     source_key = event['Records'][0]['s3']['object']['key']
     destination_bucket = source_bucket  # Default to the same bucket
     destination_key = source_key.replace("audio/", "audio-to-text/")
-    print("adding test log")
     try:
         response = s3_client.get_object(Bucket=bucket, Key=key)
         print("CONTENT TYPE: " + response['ContentType'])
