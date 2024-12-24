@@ -120,24 +120,30 @@ def add_s3_trigger_to_lambda():
         print(f"Permission granted to trigger {LAMBDA_FUNCTION_NAME} from S3 bucket {S3_BUCKET_NAME}")
 
         # Add S3 bucket notification to trigger Lambda on object creation
+        lambda_config["LambdaFunctionConfigurations"][0] = lambda_config["LambdaFunctionConfigurations"][0]["LambdaFunctionArn"].replace("AWS_ACCOUNT_ID", {aws_account_id})
         s3_client.put_bucket_notification_configuration(
             Bucket=S3_BUCKET_NAME,
+            # lambda["LambdaFunctionConfigurations"][0].LambdaFunctionArn
             NotificationConfiguration={
-                'LambdaFunctionConfigurations': [
-                    {
-                        'LambdaFunctionArn': f"arn:aws:lambda:{AWS_REGION}:{aws_account_id}:function:{LAMBDA_FUNCTION_NAME}",
-                        'Events': [S3_EVENT],  # Specify the event you want to trigger the Lambda function
-                        "Filter": {
-                            "Key": {
-                                "FilterRules": [
-                                    {"Name": "prefix", "Value": "audio/"},
-                                    {"Name": "suffix", "Value": "dialog.mp3"},
-                                ]
-                            }
-                        }
-                    },
-                ],
-            },
+                'LambdaFunctionConfigurations': lambda_config["LambdaFunctionConfigurations"]
+            }
+            
+            # NotificationConfiguration={
+            #     'LambdaFunctionConfigurations': [
+            #         {
+            #             'LambdaFunctionArn': f"arn:aws:lambda:{AWS_REGION}:{aws_account_id}:function:{LAMBDA_FUNCTION_NAME}",
+            #             'Events': [S3_EVENT],  # Specify the event you want to trigger the Lambda function
+            #             "Filter": {
+            #                 "Key": {
+            #                     "FilterRules": [
+            #                         {"Name": "prefix", "Value": "audio/"},
+            #                         {"Name": "suffix", "Value": "dialog.mp3"},
+            #                     ]
+            #                 }
+            #             }
+            #         },
+            #     ],
+            # },
         )
         print(f"S3 trigger added for Lambda function {LAMBDA_FUNCTION_NAME} on events: {S3_EVENT}")
 
