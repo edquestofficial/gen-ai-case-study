@@ -52,13 +52,14 @@ def create_or_update_lambda_function():
     # Check if Lambda function exists
     response = lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
     status_code = response["ResponseMetadata"]["HTTPStatusCode"]
+    print(response)
     print(status_code)
 
     if status_code == 200 :
         print("Lambda function is already create response ----- ", response)
         print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
     else:
-        print("New Lambda function is create ----- ", response)
+        print("New Lambda function is create ----- ", )
 
     # try:
     #     # # Update function code
