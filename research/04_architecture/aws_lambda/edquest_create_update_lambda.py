@@ -51,6 +51,7 @@ def create_or_update_lambda_function():
 
     # Check if Lambda function exists
     try:
+        print("response-----------1111")
         response = lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
         status_code = response["ResponseMetadata"]["HTTPStatusCode"]
         print(response)
