@@ -44,7 +44,7 @@ IAM_ROLES = {
 CONFIG= {
     "Audio_To_Transcript" : {
         "s3" : {
-            "bucket_name" : "edquest_post_call_analysis",
+            "bucket_name" : "edquest-post-call-analysis",
             "directory_list" : ["audio", "audio_processed", "transcript"],
             "region" : "us-east-1",
         },
@@ -56,7 +56,7 @@ CONFIG= {
             "LAMBDA_CODE_DIR" : "/functions",
             "ZIP_FILE_NAME" : "post_call_analysis.zip",
             "S3_EVENT" : "s3:ObjectCreated:*",
-            "BUCKET_NAME" : "edquest_post_call_analysis",
+            "BUCKET_NAME" : "edquest-post-call-analysis",
             'LambdaFunctionConfigurations': [
                 {
                     # regino = us-east-1, account_id = AWS_ACCOUNT_ID, event_name = PostCallAnalysis
