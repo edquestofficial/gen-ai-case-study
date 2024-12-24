@@ -14,7 +14,8 @@ def create_s3_bucket(config):
         s3_client = boto3.client("s3", region_name=region_name)
          # Check if the bucket exists
         if not bucket_exists(s3_client, bucket_name):
-            s3_client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration={'LocationConstraint': region_name})
+            s3_client.create_bucket(Bucket=bucket_name, region_name=region_name)
+            # s3_client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration={'LocationConstraint': region_name})
             print("Bucket created successfully ---------")
         else:
             print("Bucket already exists ---------")
