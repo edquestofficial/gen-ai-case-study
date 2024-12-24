@@ -50,30 +50,36 @@ def create_or_update_lambda_function():
     # print(f"Packaged {file_path} into {ZIP_FILE_NAME}")
 
     # Check if Lambda function exists
-    try:
-        response = lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
-        print("Lambda function creation response ----- ", response)
+    response = lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
+    status_code = response["ResponseMetadata"]["HTTPStatusCode"]
+    print(status_code)
+
+    if status_code == 200 :
+        print("Lambda function is already create response ----- ", response)
         print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
+    else:
+        print("New Lambda function is create ----- ", response)
 
-        # # Update function code
-        # lambda_client.update_function_code(
-        #     FunctionName=LAMBDA_FUNCTION_NAME,
-        #     ZipFile=open(ZIP_FILE_NAME, 'rb').read()
-        # )
-    except lambda_client.exceptions.ResourceNotFoundException:
-        print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
+    # try:
+    #     # # Update function code
+    #     # lambda_client.update_function_code(
+    #     #     FunctionName=LAMBDA_FUNCTION_NAME,
+    #     #     ZipFile=open(ZIP_FILE_NAME, 'rb').read()
+    #     # )
+    # except lambda_client.exceptions.ResourceNotFoundException:
+    #     print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
 
-        # Create new Lambda function
-        # lambda_client.create_function(
-        #     FunctionName=LAMBDA_FUNCTION_NAME,
-        #     Runtime="python3.9",
-        #     Handler="post_call_analysis.lambda_handler",
-        #     Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
-        #     Timeout=15,
-        #     MemorySize=128
-        # )
+    #     # Create new Lambda function
+    #     # lambda_client.create_function(
+    #     #     FunctionName=LAMBDA_FUNCTION_NAME,
+    #     #     Runtime="python3.9",
+    #     #     Handler="post_call_analysis.lambda_handler",
+    #     #     Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
+    #     #     Timeout=15,
+    #     #     MemorySize=128
+    #     # )
 
-    print(f"Lambda function {LAMBDA_FUNCTION_NAME} is ready!")
+    # print(f"Lambda function {LAMBDA_FUNCTION_NAME} is ready!")
 
 
 # You may also need to update the IAM policy for your Lambda function's role
