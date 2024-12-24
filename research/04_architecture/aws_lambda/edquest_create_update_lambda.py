@@ -26,7 +26,7 @@ FILE_NAME = "edquest_post_call_analysis.py"
 
 # Specify the directory where the post_call_analysis.py resides
 
-def create_or_update_lambda_function():
+def create_or_update_lambda_function(role_arn):
     print("Execute the lambda function")
     """Create or update the Lambda function."""
     # Package the Lambda code
