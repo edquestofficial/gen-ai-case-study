@@ -1,7 +1,7 @@
 from aws_s3 import create_bucket
 from aws_s3 import create_edquest_bucket
 from aws_roles import create_update_role
-from aws_lambda import  create_update_lambda
+from aws_lambda import  create_update_lambda, edquest_create_update_lambda
 from config.config import IAM_ROLES, CONFIG
 
 if __name__ == "__main__":
@@ -9,9 +9,10 @@ if __name__ == "__main__":
     # bucket_name = "post-call-analysis-1234"
     # region = "us-east-1"
     # create_bucket.create_s3_bucket(bucket_name, region)
-    s3_config = CONFIG["Audio_To_Transcript"]["s3"]
-    
-    create_edquest_bucket.create_s3_bucket(s3_config)
+
+    # For bucket creation
+    # s3_config = CONFIG["Audio_To_Transcript"]["s3"]
+    # create_edquest_bucket.create_s3_bucket(s3_config)
     
     # create_bucket.create_s3_bucket("post-call-analysis-1234", "us-east-1")
 
@@ -24,6 +25,7 @@ if __name__ == "__main__":
     # print(f"audio_to_transcript_role_arn : {audio_to_transcript_role_arn}")
     
     # # Step 2: Deploy Lambda function
+    edquest_create_update_lambda.create_or_update_lambda_function()
     # create_update_lambda.create_or_update_lambda_function(audio_to_transcript_role_arn)
 
     # # 
