@@ -72,7 +72,9 @@ def create_or_update_lambda_function():
         # )
     except lambda_client.exceptions.ResourceNotFoundException:
         print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
+        print(f"Exceptions:=== {lambda_client}")
         print(f"Exceptions:=== {lambda_client.exceptions}")
+        print(f"Exceptions:=== {lambda_client.exceptions.ResourceNotFoundException}")
 
         # Create new Lambda function
         # lambda_client.create_function(
