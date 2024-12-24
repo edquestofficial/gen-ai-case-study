@@ -59,10 +59,10 @@ def create_or_update_lambda_function():
 
         if status_code == 200 :
              # Update function code
-            lambda_client.update_function_code(
-                FunctionName=LAMBDA_FUNCTION_NAME,
-                ZipFile=open(ZIP_FILE_NAME, 'rb').read()
-            )
+            # lambda_client.update_function_code(
+            #     FunctionName=LAMBDA_FUNCTION_NAME,
+            #     ZipFile=open(ZIP_FILE_NAME, 'rb').read()
+            # )
         else:
             print("New Lambda function is create ----- ", )
 
