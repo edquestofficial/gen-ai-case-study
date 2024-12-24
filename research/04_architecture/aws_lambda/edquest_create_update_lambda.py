@@ -32,29 +32,28 @@ def create_or_update_lambda_function():
     # Package the Lambda code
     file_name = FILE_NAME 
 
-    current_file_path = os.path.abspath(__file__)  # Path to the executing script
-    # Navigate to the desired directory relative to the script
-    base_directory = os.path.dirname(current_file_path)  # Current script's directory
-    lambda_functions_dir = os.path.join(base_directory, "functions")  # Target directory
+    # current_file_path = os.path.abspath(__file__)  # Path to the executing script
+    # # Navigate to the desired directory relative to the script
+    # base_directory = os.path.dirname(current_file_path)  # Current script's directory
+    # lambda_functions_dir = os.path.join(base_directory, "functions")  # Target directory
 
-    # Construct the full path to the Lambda function file
-    file_path = os.path.join(lambda_functions_dir, FILE_NAME)
+    # # Construct the full path to the Lambda function file
+    # file_path = os.path.join(lambda_functions_dir, FILE_NAME)
 
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}. Please verify the path and filename.")
+    # if not os.path.exists(file_path):
+    #     raise FileNotFoundError(f"File not found: {file_path}. Please verify the path and filename.")
 
-    # Package the Lambda function into a ZIP file
-    with zipfile.ZipFile(ZIP_FILE_NAME, 'w') as zf:
-        zf.write(file_path, arcname=file_name)  # Use arcname to control the filename inside the ZIP
+    # # Package the Lambda function into a ZIP file
+    # with zipfile.ZipFile(ZIP_FILE_NAME, 'w') as zf:
+    #     zf.write(file_path, arcname=file_name)  # Use arcname to control the filename inside the ZIP
 
-    print(f"Packaged {file_path} into {ZIP_FILE_NAME}")
+    # print(f"Packaged {file_path} into {ZIP_FILE_NAME}")
 
     # Check if Lambda function exists
     try:
         print("response-----------1111")
         response = lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
         status_code = response["ResponseMetadata"]["HTTPStatusCode"]
-        print(response)
         print(status_code)
 
         if status_code == 200 :
@@ -71,19 +70,19 @@ def create_or_update_lambda_function():
 
        
     except lambda_client.exceptions.ResourceNotFoundException:
-        print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
-        print(f"Exceptions:=== {lambda_client}")
-        print(f"Exceptions:=== {lambda_client.exceptions}")
-        print(f"Exceptions:=== {lambda_client.exceptions.ResourceNotFoundException}")
+        # print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
+        # print(f"Exceptions:=== {lambda_client}")
+        # print(f"Exceptions:=== {lambda_client.exceptions}")
+        # print(f"Exceptions:=== {lambda_client.exceptions.ResourceNotFoundException}")
 
         # Create new Lambda function
         lambda_client.create_function(
             FunctionName=LAMBDA_FUNCTION_NAME,
             Runtime="python3.9",
-            Handler="edquest_post_call_analysis.lambda_handler",
+            # Handler="edquest_post_call_analysis.lambda_handler",
             # Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
-            Timeout=15,
-            MemorySize=128
+            # Timeout=15,
+            # MemorySize=128
         )
 
     print(f"Lambda function {LAMBDA_FUNCTION_NAME} is ready!")
