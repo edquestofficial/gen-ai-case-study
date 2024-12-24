@@ -45,7 +45,7 @@ CONFIG= {
     "Audio_To_Transcript" : {
         "s3" : {
             "bucket_name" : "edquest-post-call-analysis",
-            "directory_list" : ["audio", "audio_processed", "transcripts"],
+            "directory_list" : ["audio", "audio_processed", "transcript"],
             "region" : "us-east-1",
         },
         "lambda": {
