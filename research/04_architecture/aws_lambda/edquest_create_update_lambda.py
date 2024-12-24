@@ -80,10 +80,10 @@ def create_or_update_lambda_function(role_arn):
             FunctionName=LAMBDA_FUNCTION_NAME,
             Runtime="python3.9",
             Role=role_arn,
-            # Handler="edquest_post_call_analysis.lambda_handler",
+            Handler="edquest_post_call_analysis.lambda_handler",
             Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
-            # Timeout=15,
-            # MemorySize=128
+            Timeout=15,
+            MemorySize=128
         )
 
     print(f"Lambda function {LAMBDA_FUNCTION_NAME} is ready!")
