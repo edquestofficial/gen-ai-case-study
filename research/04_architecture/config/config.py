@@ -40,6 +40,7 @@ IAM_ROLES = {
   },
 }
 
+
 CONFIG= {
     "Audio_To_Transcript" : {
         "s3" : {
@@ -48,10 +49,33 @@ CONFIG= {
             "region" : "us-east-1",
         },
         "lambda": {
-
+            "REGION_NAME" : "us-east-1",
+            "LAMBDA_FUNCTION_NAME" : "PostCallAnalysis",
+            "ROLE_NAME" : "LambdaExecutionRole",
+            "POLICY_NAME" : "LambdaBasicPolicy",
+            "LAMBDA_CODE_DIR" : "/functions",
+            "ZIP_FILE_NAME" : "post_call_analysis.zip",
+            "S3_EVENT" : "s3:ObjectCreated:*",
+            "BUCKET_NAME" : "edquest_post_call_analysis",
+            'LambdaFunctionConfigurations': [
+                {
+                    # regino = us-east-1, account_id = AWS_ACCOUNT_ID, event_name = PostCallAnalysis
+                    'LambdaFunctionArn': "arn:aws:lambda:us-east-1:AWS_ACCOUNT_ID:function:PostCallAnalysis", 
+                    'Events': ["s3:ObjectCreated:*"],  # Specify the event you want to trigger the Lambda function
+                    "Filter": {
+                        "Key": {
+                            "FilterRules": [
+                                {"Name": "prefix", "Value": "audio/"},
+                                {"Name": "suffix", "Value": "dialog.mp3"},
+                            ]
+                        }
+                    }
+                },
+            ],
         },
         "iam_role": {
             
-        }
+        },
+        "test": lambda name: f"My Name is {name}"
     }
 }
