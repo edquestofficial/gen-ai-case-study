@@ -58,6 +58,7 @@ def create_or_update_lambda_function():
         print(status_code)
 
         if status_code == 200 :
+            print("Lambda function creation response ----- ", response)
              # Update function code
             # lambda_client.update_function_code(
             #     FunctionName=LAMBDA_FUNCTION_NAME,
@@ -66,7 +67,6 @@ def create_or_update_lambda_function():
         else:
             print("New Lambda function is create ----- ", )
 
-        print("Lambda function creation response ----- ", response)
         print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
 
        
