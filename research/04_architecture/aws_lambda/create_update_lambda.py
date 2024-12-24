@@ -46,6 +46,7 @@ def get_aws_account_id():
 def create_or_update_lambda_function(role_arn):
     """Create or update the Lambda function."""
     # Package the Lambda code
+    print("adding test comment")
     file_name = "post_call_analysis.py" 
     # file_path = os.path.join(LAMBDA_CODE_DIR, file_name)
 
