@@ -58,19 +58,18 @@ def create_or_update_lambda_function():
         print(status_code)
 
         if status_code == 200 :
-            print("Lambda function is already create response ----- ", response)
-            print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
+             # Update function code
+            lambda_client.update_function_code(
+                FunctionName=LAMBDA_FUNCTION_NAME,
+                ZipFile=open(ZIP_FILE_NAME, 'rb').read()
+            )
         else:
             print("New Lambda function is create ----- ", )
 
         print("Lambda function creation response ----- ", response)
         print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
 
-        # # Update function code
-        # lambda_client.update_function_code(
-        #     FunctionName=LAMBDA_FUNCTION_NAME,
-        #     ZipFile=open(ZIP_FILE_NAME, 'rb').read()
-        # )
+       
     except lambda_client.exceptions.ResourceNotFoundException:
         print(f"Creating new Lambda function: {LAMBDA_FUNCTION_NAME}")
         print(f"Exceptions:=== {lambda_client}")
@@ -78,14 +77,14 @@ def create_or_update_lambda_function():
         print(f"Exceptions:=== {lambda_client.exceptions.ResourceNotFoundException}")
 
         # Create new Lambda function
-        # lambda_client.create_function(
-        #     FunctionName=LAMBDA_FUNCTION_NAME,
-        #     Runtime="python3.9",
-        #     Handler="post_call_analysis.lambda_handler",
-        #     Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
-        #     Timeout=15,
-        #     MemorySize=128
-        # )
+        lambda_client.create_function(
+            FunctionName=LAMBDA_FUNCTION_NAME,
+            Runtime="python3.9",
+            Handler="post_call_analysis.lambda_handler",
+            Code={"ZipFile": open(ZIP_FILE_NAME, 'rb').read()},
+            Timeout=15,
+            MemorySize=128
+        )
 
     print(f"Lambda function {LAMBDA_FUNCTION_NAME} is ready!")
 

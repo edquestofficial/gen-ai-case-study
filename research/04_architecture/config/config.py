@@ -53,7 +53,7 @@ CONFIG= {
         },
         "lambda": {
             "REGION_NAME" : REGIN_NAME,
-            "LAMBDA_FUNCTION_NAME" : "test_lambda",
+            "LAMBDA_FUNCTION_NAME" : "PostCallAnalysis",
             "ROLE_NAME" : "LambdaExecutionRole",
             "POLICY_NAME" : "LambdaBasicPolicy",
             "LAMBDA_CODE_DIR" : "/functions",
@@ -62,8 +62,8 @@ CONFIG= {
             "BUCKET_NAME" : BUCKET_NAME,
             'LambdaFunctionConfigurations': [
                 {
-                    # regino = us-east-1, account_id = AWS_ACCOUNT_ID, event_name = test_lambda
-                    'LambdaFunctionArn': "arn:aws:lambda:us-east-1:AWS_ACCOUNT_ID:function:test_lambda", 
+                    # regino = us-east-1, account_id = AWS_ACCOUNT_ID, event_name = PostCallAnalysis
+                    'LambdaFunctionArn': "arn:aws:lambda:us-east-1:AWS_ACCOUNT_ID:function:PostCallAnalysis", 
                     'Events': ["s3:ObjectCreated:*"],  # Specify the event you want to trigger the Lambda function
                     "Filter": {
                         "Key": {
