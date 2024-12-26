@@ -57,7 +57,7 @@ def create_or_update_lambda_function(role_arn):
         print(status_code)
 
         if status_code == 200 :
-            print("Lambda function creation response ----- ", response)
+            print("Lambda function creation response -------", response)
              # Update function code
             # lambda_client.update_function_code(
             #     FunctionName=LAMBDA_FUNCTION_NAME,
