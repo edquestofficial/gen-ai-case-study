@@ -58,7 +58,7 @@ jobs:
         pwd
         echo "........................................"
         ls
-        pip install -r gen-ai-case-study/research/05_cdk_poc/requirements.txt
+        pip install -r research/05_cdk_poc/requirements.txt
 
     # Step 7: Setup AWS CLI
     - name: Configure AWS credentials
