@@ -42,19 +42,45 @@ jobs:
         python-version: 18
 
     # Step 4: Install python dependencies
-    # - name: Install python dependencies
-    #   run: |
-    #     pip install --upgrade pip
-    #     pip install wheel
+    - name: Install python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install wheel
+    
+    # Step 5: Install CDK (node)
+    - name: Install CDK (node)
+      run: |
+        npm install -g aws-cdk
+    
+    # Step 6: Install core dependencies
+    - name: Install core dependencies
+      run: |
+        pip install -r gen-ai-case-study/research/05_cdk_poc/requirements.txt
 
+    # Step 7: Setup AWS CLI
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+        echo "connection created sucessfully................."
 
-    # # Step 3: Setup AWS CLI
-    # - name: Configure AWS credentials
-    #   uses: aws-actions/configure-aws-credentials@v3
-    #   with:
-    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     aws-region: us-east-1
+    # Step 8: Synth cdk-poc
+    - name: synth cdk-poc
+      run: |
+        cd gen-ai-case-study/research/05_cdk_poc/
+        echo "you are into directory........................."
+      # cdk synth 'cdk-poc/**'
+
+    # Step 9: Diff cdk-poc
+    - name: Diff cdk-poc
+      run: |
+        echo "cdk diff is executed .........................."
+      # cdk diff 'cdk-poc/**'
+
+    # Step 10: 
+
 
     # # Step 3: Install dependencies
     # - name: Install dependencies
