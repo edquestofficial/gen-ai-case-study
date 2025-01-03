@@ -17,10 +17,10 @@ on:
 jobs:
   cdk-app-scale-up:
     runs-on: ubuntu-latest
-    enviorment: 'dev'
+    environment: 'dev'
     env:
-      ENVIORMENT_NAME: 'infra-scale-up'
-      ENVIORMENT: 'dev'
+      ENVIRONMENT_NAME: 'infra-scale-up'
+      ENVIRONMENT: 'dev'
       AWS_REGION: ${{ github.event.inputs.DeployRegion || 'us-east-1' }}
 
 
