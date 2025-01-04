@@ -73,14 +73,14 @@ jobs:
       run: |
         # cd research/05_cdk_poc/
         echo "you are into directory........................."
-        cdk synth
+        cdk synth --app "python research/05_cdk_poc/app.py"
       # cdk synth 'cdk-poc/**'
 
     # Step 9: Diff cdk-poc
     - name: Diff cdk-poc
       run: |
         echo "cdk diff is started .........................."
-        cdk diff
+        cdk diff --app "python research/05_cdk_poc/app.py"
         echo "cdk diff is executed .........................."
       # cdk diff 'cdk-poc/**'
 
