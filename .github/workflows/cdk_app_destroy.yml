@@ -77,9 +77,9 @@ jobs:
     # Step 8: List cdk apps
     - name: List cdk apps
       run: |
-        cd research/05_cdk_poc/
         cdk list
         echo "you are into directory........................."
+      # cd research/05_cdk_poc/
       # cdk synth 'cdk-poc/**'
 
     # Step 9: Destroy cdk
