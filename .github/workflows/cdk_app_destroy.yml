@@ -1,4 +1,4 @@
-name: AWS cdk app pipeline
+name: AWS cdk app destroy pipeline
 
 on:
   push:        # Trigger workflow on push events

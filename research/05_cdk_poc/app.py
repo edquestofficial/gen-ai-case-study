@@ -3,11 +3,11 @@ import os
 
 import aws_cdk as cdk
 
-from 05_cdk_poc.05_cdk_poc_stack import 05CdkPocStack
+from cdk_poc.cdk_poc_stack import CdkPocStack
 
 
 app = cdk.App()
-05CdkPocStack(app, "05CdkPocStack",
+CdkPocStack(app, "05CdkPocStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.

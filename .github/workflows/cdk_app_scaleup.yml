@@ -1,4 +1,4 @@
-name: AWS cdk app pipeline
+name: AWS cdk app scaleup pipeline
 
 on:
   push:        # Trigger workflow on push events
