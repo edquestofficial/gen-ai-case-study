@@ -69,14 +69,20 @@ jobs:
         aws-region: us-east-1
 
     # Step 8: Synth cdk-poc
+    - name: Bootstrap CDK AWS Environment
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+          cdk bootstrap aws://$ACCOUNT_ID/us-east-1
+
+    # Step 9: Synth cdk-poc
     - name: synth cdk-poc
       run: |
-        # cd research/05_cdk_poc/
         echo "you are into directory........................."
         cdk synth --app "python research/05_cdk_poc/app.py"
+      # cd research/05_cdk_poc/
       # cdk synth 'cdk-poc/**'
 
-    # Step 9: Diff cdk-poc
+    # Step 10: Diff cdk-poc
     - name: Diff cdk-poc
       run: |
         echo "cdk diff is started .........................."
@@ -84,15 +90,15 @@ jobs:
         echo "cdk diff is executed .........................."
       # cdk diff 'cdk-poc/**'
 
-    # Step 10: Deploy cdk-poc
+    # Step 11: Deploy cdk-poc
     - name: Deploy cdk-poc
       run: |
-        echo "cdk diff is started .........................."
+        echo "cdk deploy is started .........................."
         cdk deploy --app "python research/05_cdk_poc/app.py"
-        echo "cdk diff is executed .........................."
+        echo "cdk deploy is executed .........................."
       # cdk diff 'cdk-poc/**'
 
-    # Step 10: 
+    # Step 12: 
 
 
     # # Step 3: Install dependencies
