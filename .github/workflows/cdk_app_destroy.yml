@@ -77,7 +77,7 @@ jobs:
     # Step 8: List cdk apps
     - name: List cdk apps
       run: |
-        cdk list
+        cdk list --app "python research/05_cdk_poc/app.py"
         echo "you are into directory........................."
       # cd research/05_cdk_poc/
       # cdk synth 'cdk-poc/**'
