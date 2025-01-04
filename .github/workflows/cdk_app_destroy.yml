@@ -15,7 +15,7 @@ on:
           - us-west-2
 
 jobs:
-  cdk-app-scale-up:
+  cdk-app-destroy:
     runs-on: ubuntu-latest
     environment: 'dev'
     env:
@@ -39,7 +39,7 @@ jobs:
     - name: Setup node 18
       uses: actions/setup-node@v3
       with:
-        python-version: 18
+        node-version: 18
 
     # Step 4: Install python dependencies
     - name: Install python dependencies
@@ -86,7 +86,7 @@ jobs:
     - name: Destroy cdk
       run: |
         echo "cdk destroy is starteded .........................."
-        cdk destroy --app "python research/05_cdk_poc/app.py" --require-approval never
+        cdk destroy --app "python research/05_cdk_poc/app.py" --require-approval never --force
         echo "cdk destroy is executeded .........................."
       # cdk diff 'cdk-poc/**'
 
