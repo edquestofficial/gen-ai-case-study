@@ -94,7 +94,7 @@ jobs:
     - name: Deploy cdk-poc
       run: |
         echo "cdk deploy is started .........................."
-        cdk deploy --app "python research/05_cdk_poc/app.py"
+        cdk deploy --app "python research/05_cdk_poc/app.py" --require-approval never
         echo "cdk deploy is executed .........................."
       # cdk diff 'cdk-poc/**'
 
