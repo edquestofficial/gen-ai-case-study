@@ -71,7 +71,7 @@ jobs:
     # Step 8: Synth cdk-poc
     - name: synth cdk-poc
       run: |
-        cd gen-ai-case-study/research/05_cdk_poc/
+        cd research/05_cdk_poc/
         echo "you are into directory........................."
       # cdk synth 'cdk-poc/**'
 
