@@ -3,7 +3,7 @@ name: AWS cdk app pipeline
 on:
   push:        # Trigger workflow on push events
     branches:
-      - cdk-poc   # Specify the branch to trigger the workflow (e.g., 'main')
+      - cdk-poc-destroy   # Specify the branch to trigger the workflow (e.g., 'main')
   workflow_dispatch:
     inputs:
       DeployRegion:
@@ -68,17 +68,20 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    # Step 8: Synth cdk-poc
-    - name: synth cdk-poc
+    # Step 8: List cdk apps
+    - name: List cdk apps
       run: |
         cd research/05_cdk_poc/
+        cdk list
         echo "you are into directory........................."
       # cdk synth 'cdk-poc/**'
 
-    # Step 9: Diff cdk-poc
-    - name: Diff cdk-poc
+    # Step 9: Destroy cdk
+    - name: Destroy cdk
       run: |
-        echo "cdk diff is executed .........................."
+        echo "cdk destroy is starteded .........................."
+        cdk destroy
+        echo "cdk destroy is executeded .........................."
       # cdk diff 'cdk-poc/**'
 
     # Step 10: 

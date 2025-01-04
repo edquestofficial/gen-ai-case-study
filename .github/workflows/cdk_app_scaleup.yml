@@ -1,0 +1,111 @@
+name: AWS cdk app pipeline
+
+on:
+  push:        # Trigger workflow on push events
+    branches:
+      - cdk-poc   # Specify the branch to trigger the workflow (e.g., 'main')
+  workflow_dispatch:
+    inputs:
+      DeployRegion:
+        description: 'Dev Region'
+        default: 'us-east-1'
+        type: choice
+        options:
+          - us-east-1
+          - us-west-2
+
+jobs:
+  cdk-app-scale-up:
+    runs-on: ubuntu-latest
+    environment: 'dev'
+    env:
+      ENVIRONMENT_NAME: 'infra-scale-up'
+      ENVIRONMENT: 'dev'
+      AWS_REGION: ${{ github.event.inputs.DeployRegion || 'us-east-1' }}
+
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    # Step 2: Setup AWS CLI
+    - name: Setup python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    # Step 3: Setup Node 18
+    - name: Setup node 18
+      uses: actions/setup-node@v3
+      with:
+        python-version: 18
+
+    # Step 4: Install python dependencies
+    - name: Install python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install wheel
+    
+    # Step 5: Install CDK (node)
+    - name: Install CDK (node)
+      run: |
+        npm install -g aws-cdk
+    
+    # Step 6: Install core dependencies
+    - name: Install core dependencies
+      run: |
+        pwd
+        echo "........................................"
+        ls
+        pip install -r research/05_cdk_poc/requirements.txt
+
+    # Step 7: Setup AWS CLI
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_EDQUEST }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_EDQUEST }}
+        aws-region: us-east-1
+
+    # Step 8: Synth cdk-poc
+    - name: synth cdk-poc
+      run: |
+        cd research/05_cdk_poc/
+        echo "you are into directory........................."
+        cdk synth
+      # cdk synth 'cdk-poc/**'
+
+    # Step 9: Diff cdk-poc
+    - name: Diff cdk-poc
+      run: |
+        echo "cdk diff is started .........................."
+        cdk diff
+        echo "cdk diff is executed .........................."
+      # cdk diff 'cdk-poc/**'
+
+    # Step 10: Deploy cdk-poc
+    - name: Deploy cdk-poc
+      run: |
+        echo "cdk diff is started .........................."
+        cdk deploy
+        echo "cdk diff is executed .........................."
+      # cdk diff 'cdk-poc/**'
+
+    # Step 10: 
+
+
+    # # Step 3: Install dependencies
+    # - name: Install dependencies
+    #   run: |
+    #     pip install --upgrade boto3 botocore
+
+    # # Step 4: Deploy Lambda Function
+    # - name: Create AWS Infra
+    #   # run: python deploy_lambda.py
+    #   # run: python D:\workspace\GenAI\github\gen-ai-case-study\research\04_architecture\create_aws_infra.py
+    #   run: python research/04_architecture/create_aws_infra.py
+
+    # # Step 5: Success Notification
+    # - name: Notify success
+    #   run: echo "AWS Lambda Function deployed successfully!"
