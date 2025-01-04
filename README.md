@@ -10,3 +10,4 @@
 | 6. Web Scrapper with QnA Bot   | [Link](https://github.com/edquestofficial/gen-ai-case-study/tree/main/case_study/6_web_scrapper_with_qna_bot)   |      A&A         |
 | 7. Multi Document QnA Bot      | [Link](https://github.com/edquestofficial/gen-ai-case-study/tree/main/case_study/7_multi_document_qna_bot)   |      No         |
 | 8. Financial Document Analysis | [Link](https://github.com/edquestofficial/gen-ai-case-study/tree/main/case_study/8_financial_document_analysis)   |      No         |
+| 9. Sentiment Analysis | [Link](https://github.com/rmnchopra91/sentiment-analysis-e2e/blob/main/README.md)   |      No         |
