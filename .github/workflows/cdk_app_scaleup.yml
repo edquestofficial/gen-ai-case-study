@@ -76,13 +76,13 @@ jobs:
         cdk synth
       # cdk synth 'cdk-poc/**'
 
-    # Step 9: Diff cdk-poc
-    - name: Diff cdk-poc
-      run: |
-        echo "cdk diff is started .........................."
-        cdk diff
-        echo "cdk diff is executed .........................."
-      # cdk diff 'cdk-poc/**'
+    # # Step 9: Diff cdk-poc
+    # - name: Diff cdk-poc
+    #   run: |
+    #     echo "cdk diff is started .........................."
+    #     cdk diff
+    #     echo "cdk diff is executed .........................."
+    #   # cdk diff 'cdk-poc/**'
 
     # Step 10: Deploy cdk-poc
     - name: Deploy cdk-poc

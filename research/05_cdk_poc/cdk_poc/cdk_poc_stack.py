@@ -16,7 +16,7 @@ class CdkPocStack(Stack):
 
         # example resource
         # queue = sqs.Queue(
-        #     self, "05CdkPocQueue",
+        #     self, "CdkPocQueue",
         #     visibility_timeout=Duration.seconds(300),
         # )
         # Define the Lambda function resource
