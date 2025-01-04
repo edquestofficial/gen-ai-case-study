@@ -7,7 +7,7 @@ from cdk_poc.cdk_poc_stack import CdkPocStack
 # resource in cdk_poc/cdk_poc_stack.py
 def test_sqs_queue_created():
     app = core.App()
-    stack = CdkPocStack(app, "05-cdk-poc")
+    stack = CdkPocStack(app, "cdk-poc")
     template = assertions.Template.from_stack(stack)
 
 #     template.has_resource_properties("AWS::SQS::Queue", {
