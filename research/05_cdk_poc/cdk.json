@@ -1,5 +1,5 @@
 {
-  "app": "python app.py",
+  "app": "python research/05_cdk_poc/app.py",
   "watch": {
     "include": [
       "**"
