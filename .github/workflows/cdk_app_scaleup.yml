@@ -70,9 +70,9 @@ jobs:
 
     # Step 8: Synth cdk-poc
     - name: Bootstrap CDK AWS Environment
-        run: |
-          ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
-          cdk bootstrap aws://$ACCOUNT_ID/us-east-1
+      run: |
+        ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+        cdk bootstrap aws://$ACCOUNT_ID/us-east-1
 
     # Step 9: Synth cdk-poc
     - name: synth cdk-poc
