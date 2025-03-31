@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-text-to-speech": "^1.4.1"
+  }
+}

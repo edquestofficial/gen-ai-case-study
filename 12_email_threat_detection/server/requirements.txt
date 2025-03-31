@@ -1,0 +1,8 @@
+fastapi[standard]
+uvicorn
+pinecone
+pypdf
+langchain
+google-genai 
+python-dotenv
+PyCryptodome
