@@ -1,0 +1,60 @@
+# This class is used for managing the LlamaIndex integration, allowing for data loading, retrieval, and querying using the Gemini model and Redis-based vector storage.
+
+##### Setup
+# To use this class, you need to install the required dependencies. You can do this by running:
+
+pip install llama-index-llms-openai
+pip install llama-index-llms-gemini
+pip install llama-index-embeddings-huggingface
+pip install -q llama-index google-generativeai
+pip install llama-index-llms-ollama
+
+# Initialization
+To initialize the singleton instance of Reranking, you need to provide the path to your data directory and the API key for the Gemini model:
+Ex:
+llama_index_singleton = Reranking(data_directory="/path/to/your/data", api_key="your_api_key_here")
+
+##### Methods
+
+1. get_retrieved_nodes(query_str: str, vector_top_k=10, reranker_top_n=3, with_reranker=False) -> list
+# This method retrieves the top vector_top_k nodes related to the provided query string. You can also specify if reranking should be applied using the with_reranker flag.
+
+# Parameters:
+query_str (str): The query string to search for.
+vector_top_k (int): Number of top results to retrieve based on vector similarity.
+reranker_top_n (int): Number of top results to rerank.
+with_reranker (bool): Flag to apply reranking to the retrieved nodes.
+
+Returns:
+A list of retrieved nodes.
+
+2. visualize_retrieved_nodes(nodes: list) -> None
+# This method visualizes the retrieved nodes in an HTML table format.
+
+Parameters:
+nodes (list): A list of retrieved nodes to visualize.
+
+3. query_engine_response(query_str: str, similarity_top_k=3, reranker_top_n=2) -> Any
+# This method uses the query engine to retrieve and summarize the response for a given query string.
+
+Parameters:
+query_str (str): The query string to search for.
+similarity_top_k (int): Number of top results to retrieve based on vector similarity.
+reranker_top_n (int): Number of top results to rerank.
+
+Returns:
+A summarized response from the query engine.
+
+
+##### Example Usage:
+
+# Create Singleton Instance
+llama_index_singleton = Reranking(data_directory="/content/examples/data", api_key="api_key")
+
+# Retrieve nodes
+nodes = llama_index_singleton.get_retrieved_nodes("Board of Directors?", vector_top_k=3, with_reranker=False)
+llama_index_singleton.visualize_retrieved_nodes(nodes)
+
+# Query engine response
+response = llama_index_singleton.query_engine_response("The number of permanent employees on the rolls of Company as per Director's report?")
+print(response)

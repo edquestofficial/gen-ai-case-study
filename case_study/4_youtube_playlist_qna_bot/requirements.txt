@@ -1,0 +1,12 @@
+chromadb
+youtube_transcript_api
+llama-index-llms-gemini
+llama-index-vector-stores-chroma
+llama-index-embeddings-huggingface
+llama-index-readers-youtube-transcript
+llama-index-core
+google-api-python-client
+speechrecognition
+pyaudio
+gradio
+openai-whisper

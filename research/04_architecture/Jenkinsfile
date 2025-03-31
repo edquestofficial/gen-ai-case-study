@@ -1,0 +1,33 @@
+pipeline {
+    agent any 
+    environment {
+        // Define the path as an environment variable
+        SCRIPT_PATH = '/var/jenkins_home/workspace/test_poc'
+    }
+    stages {
+        // stage('Checkout') {
+        //     steps {
+        //         // Checkout code from GitHub repository
+        //         git 'https://github.com/edquestofficial/gen-ai-case-study.git'
+        //     }
+        // }
+        stage('Run Python File') {
+            steps {
+                script {
+                    // Install FastAPI and Uvicorn first
+                    // sh 'pip3 install fastapi uvicorn'
+                    // sh 'sudo apt-get install python3-fastapi python3-uvicorn'
+                    //
+                    sh "cd ${SCRIPT_PATH}/research/04_architecture/ && sudo docker build -t fastapi-app ."
+                    //
+                    // sh "sudo docker build -t fastapi-app ."
+                    //
+                    sh "sudo docker run -dt -p 8000:8000 fastapi-app"
+
+                    // Run the Python file (change to your script's name)
+                    // sh "python3 ${SCRIPT_PATH}/research/04_architecture/index.py"
+                }
+            }
+        }
+    }
+}
