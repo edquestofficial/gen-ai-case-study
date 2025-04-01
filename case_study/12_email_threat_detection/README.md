@@ -17,9 +17,7 @@ The pipeline consists of two primary components: **Triage** and **Email & Number
     * Identifies suspicious keywords, phrases, and structural anomalies (e.g., mismatched sender domains, unusual subject lines, urgent requests).
     * Uses regular expressions and string manipulation to detect patterns.
     * Filters emails based on these rules, marking those that match suspicious patterns as potentially fraudulent.
-    * 
-* **Technical Details:**
-    
+          
 
 ### 2. Email & Number Extraction
 
@@ -31,8 +29,6 @@ The pipeline consists of two primary components: **Triage** and **Email & Number
     * Formats extracted data into a structured format (e.g., JSON).
     * Automatically routes the extracted information and the original email to the designated departments (e.g., security, legal).
       
-* **Technical Details:**
-
    
 ## Workflow
 
@@ -44,7 +40,6 @@ The pipeline consists of two primary components: **Triage** and **Email & Number
 6.  **Automated Routing:** The extracted information and the original email are sent to the relevant departments.
 7.  **Action & Investigation:** The designated departments take appropriate action based on the provided information.
 
-## Technology Stack
 
 
 
