@@ -1,44 +1,48 @@
-# AI Tutor
+**This is the Server-side Readme.md file for AI Tutor**
 
-This project provides an AI-powered tutoring system designed to assist learners with various subjects.
+## Prerequisites
 
-## Description
+ Python 3.13.2
 
-The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
-It is an application of the Retrieval Augmented Generation (RAG) pipeline, specifically the retrieval part. Here's a breakdown:
+ Pincone
+ 
+ Google gen-ai
+ 
+ langchain
+ 
+ pypdf
 
-RAG Overview
+For more information, refer to the `requirements.txt` file.
 
-RAG combines the power of pre-trained language models (LLMs) with external knowledge sources. The process typically involves:
-
-Retrieval:
-Fetching relevant information from a knowledge base (like a vector database).
-This is where the provided code focuses.
-
-Augmentation:
-Injecting the retrieved information into the LLM's prompt.
-
-Generation:
-The LLM generates a response based on the augmented prompt.
 
 ## Installation
 
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/edquestofficial/ai-tutor.git](https://github.com/edquestofficial/ai-tutor.git)
-    cd ai-tutor
+    git clone [https://github.com/edquestofficial/ai-tutor.git]
     ```
+
+
 
 2.  **Install dependencies:**
 
-    * This project likely uses Python and requires specific libraries.
-    * Created a virtual environment and activated it using the following commands
+    * This project mainly uses Python on the server side.
 
+      Go to the official Python website: python.org.
+
+      After installation of python, verify by giving the following command in command prompt:
+
+    ```bash
+    python --version
+    ```
+
+    * Created a virtual environment and activated it using the following commands
+  
     ```bash
     python -m venv venv
     venv/Scripts/activate
-    source venv/bin/activate
+    ```
 
     * Consult the project's `requirements.txt` for dependencies and install them using pip:
 
@@ -46,36 +50,31 @@ The LLM generates a response based on the augmented prompt.
         pip install -r requirements.txt
         ```
 
-3.  **Set up API keys :**
 
-    * The AI Tutor requires API keys for Gemini services. Created an API key for Gemini from Google Studio and used it in the project.
-      
+3.  **Set up API keys for AI model and Vector Database:**
 
-4.  **Database setup:**
+    * The AI Tutor requires API keys for Gemini. Users can create their own API keys from Google Studio.
 
-    * Pinecone Vector database has been used to store the data and give results when fetched according to the requirements.
-
-## Usage
-
-1.  **Run the application:**
-
-    * Execute the main script of the AI Tutor. For example, if the main script is `main.py`:
-
-        ```bash
-        python main.py
-        ```
-
-2.  **Interact with the tutor:**
-
-   
-
-3.  **Configuration:**
-
-    * Refer to the project's configuration files or documentation to customize settings like the AI model, learning parameters, or user preferences.
+    * Pinecone Vector Database has been used as a database to store the data and give results when fetched according to the requirements. Users can create their own API keys from Pinecone.
 
 
-## Acknowledgments
 
-* [Mention any libraries or resources used, e.g., OpenAI, specific frameworks]
-* [Acknowledge any contributors or individuals who helped with the project]
+4. **Environment Variables:**
+
+The following environment variables are used for accessing the vector database as Pinecone and an AI model as Gemini:
+
+ * `GEMINI_API_KEY`: Your API key (required).
+ * `PINECONE_API_KEY`: Your API key (required).
+
+ To set environment variables, create a `.env` file in the project.
+
+5. **To Start Backend Server :-**
+
+Once you have created virtual environment and installed all libraries and dependencies, run below command to start the server - 
+
+```sh
+
+fastapi dev src/app.py
+```
+
 
