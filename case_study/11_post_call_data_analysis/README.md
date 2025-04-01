@@ -18,13 +18,6 @@ The system processes recorded audio conversations between customers and AI agent
 * **Detailed Reporting:** Generation of comprehensive reports highlighting agent performance and areas for improvement.
 * **Backend Storage:** Secure storage of call recordings and transcribed data for future analysis.
 
-## Technology Stack
-
-* **Speech-to-Text API:** 
-* **Natural Language Processing (NLP):** 
-* **Database:** 
-* **Backend Framework:** 
-* **Reporting Tools:** 
 
 ## Workflow
 
@@ -33,10 +26,6 @@ The system processes recorded audio conversations between customers and AI agent
 3.  **Text Analysis:** The transcribed text is analyzed using NLP techniques to identify customer queries and agent responses.
 4.  **Performance Evaluation:** The AI agent's performance is evaluated based on predefined metrics.
 5.  **Report Generation:** A detailed report is generated, highlighting the agent's performance and areas for improvement.
-
-## Usage
-
-(Add instructions on how to set up and run the project, if applicable. Include API keys and setup information)
 
 
 
