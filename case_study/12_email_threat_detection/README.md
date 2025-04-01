@@ -2,6 +2,9 @@
 
 This project implements a Python-based pipeline for detecting fraudulent emails, extracting relevant information using parsing techniques, and automating the forwarding of these emails to appropriate departments for immediate action.
 
+![image](https://github.com/user-attachments/assets/fa070204-ca59-4e3b-8d87-c5d4e07dcba0)
+
+
 ## Overview
 
 The pipeline consists of two primary components: **Triage** and **Email & Number Extraction**. These components work in tandem to streamline the process of identifying and responding to email fraud. This version focuses on parsing for data extraction, rather than machine learning for triage.
@@ -40,10 +43,8 @@ The pipeline consists of two primary components: **Triage** and **Email & Number
 6.  **Automated Routing:** The extracted information and the original email are sent to the relevant departments.
 7.  **Action & Investigation:** The designated departments take appropriate action based on the provided information.
 
+**For more Information**
 
+Please refer to the following document:
 
-
-## Usage
-
-(Include instructions for setting up the environment, installing dependencies, and running the pipeline. Include configuration details for email servers, department routing, and the rules used for the Triage component.)
-
+https://docs.google.com/document/d/1Z_5mmpja9EZunMGMRK5EcpwS_8cYoEK0wElCytxBBHA/edit?usp=sharing
