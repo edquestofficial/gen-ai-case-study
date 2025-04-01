@@ -1,80 +1,56 @@
-**This is the Server-side Readme.md file for AI Tutor**
+# AI Tutor
 
-## Prerequisites
+This project provides an AI-powered tutoring system designed to assist learners with various subjects.
 
- Python 3.13.2
+## Description
 
- Pincone
- 
- Google gen-ai
- 
- langchain
- 
- pypdf
+The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
+It is an application of the Retrieval Augmented Generation (RAG) pipeline, specifically the retrieval part. Here's a breakdown:
 
-For more information, refer to the `requirements.txt` file.
+RAG Overview
 
+RAG combines the power of pre-trained language models (LLMs) with external knowledge sources. The process typically involves:
+
+Retrieval:
+Fetching relevant information from a knowledge base (like a vector database).
+This is where the provided code focuses.
+
+Augmentation:
+Injecting the retrieved information into the LLM's prompt.
+
+Generation:
+The LLM generates a response based on the augmented prompt.
 
 ## Installation
 
-1.  **Clone the repository:**
+To know more about the installations, refer to the links below:
 
-    ```bash
-    git clone [https://github.com/edquestofficial/ai-tutor.git]
-    ```
+Here is the link to client side README.md file - [Client-Side README](client/README.md)
 
-
-
-2.  **Install dependencies:**
-
-    * This project mainly uses Python on the server side.
-
-      Go to the official Python website: python.org.
-
-      After installation of python, verify by giving the following command in command prompt:
-
-    ```bash
-    python --version
-    ```
-
-    * Created a virtual environment and activated it using the following commands
-  
-    ```bash
-    python -m venv venv
-    venv/Scripts/activate
-    ```
-
-    * Consult the project's `requirements.txt` for dependencies and install them using pip:
-
-        ```bash
-        pip install -r requirements.txt
-        ```
+Here is the link to server side README.md file - [Server-Side README](server/README.md)
 
 
-3.  **Set up API keys for AI model and Vector Database:**
+## Usage
 
-    * The AI Tutor requires API keys for Gemini. Users can create their own API keys from Google Studio.
+The application has 3 main functionalities for user:
 
-    * Pinecone Vector Database has been used as a database to store the data and give results when fetched according to the requirements. Users can create their own API keys from Pinecone.
+*Inserting the Data and Metadata (Uploading the file)
+
+Our user is a student who wants to learn about any topic from the file that they have uploaded.
+They can upload the file and add certain details like class, subject, chapter name as metadata components. The file data would get stored in the form of chunks in the database.
+
+
+*Get Responses in form of Chunks (Questions and Answers)
+
+Now, students can ask the question related to any topic from that file in two possible ways: Voice Recording and Text. Users can ask any query and they will get the best possible response either in text or in voice of the AI Tutor. As per our questions,the retriever will search for closest answers that are stored as chunks in the database.
+
+
+*Another Implementation of Chunking
+
+Now that students have got their answers.They might want to test their knowledge. This is where the third and last functionality comes into play that is a quiz. The student will enter the topic and number of questions that they want to answer.
 
 
 
-4. **Environment Variables:**
 
-The following environment variables are used for accessing the vector database as Pinecone and an AI model as Gemini:
-
- * `GEMINI_API_KEY`: Your API key (required).
- * `PINECONE_API_KEY`: Your API key (required).
-
- To set environment variables, create a `.env` file in the project.
-
-5. **To Start Backend Server :-**
-
-Once you have created virtual environment and installed all libraries and dependencies, run below command to start the server - 
-
-```sh
-
-fastapi dev src/app.py
-```
 
 
