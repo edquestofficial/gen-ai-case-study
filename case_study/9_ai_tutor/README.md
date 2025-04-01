@@ -66,8 +66,10 @@ as chunks in the database.
 Now that students have got their answers.They might want to test their knowledge. This is where the third and last functionality comes into play that is a 
 quiz. The student will enter the topic and number of questions that they want to answer and AI Tutor will evaluate your learnings by showing the Quiz score. 
 
+**For more Information** 
 
+Please refer to the following document:
 
-
+https://docs.google.com/document/d/1pZmDl1-O5pgTeyBxVtrWEhQL2LkswFTUQPEwwjy3fsI/edit?usp=sharing
 
 
