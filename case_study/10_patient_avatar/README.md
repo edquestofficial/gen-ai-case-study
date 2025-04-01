@@ -1,6 +1,6 @@
 # Patient Avatar
 
-This project is an AI-driven platform designed to enhance medical students' clinical interaction and diagnostic skills using voice interaction. Leveraging the advanced capabilities of ChatGPT 4.0 and sophisticated prompt engineering, this simulator creates realistic patient scenarios.
+This project is an AI-driven platform designed to enhance medical students' clinical interaction and diagnostic skills using voice interaction, observing their hand movements and analysing their communication with an AI powered patient. Leveraging the advanced capabilities of ChatGPT 4.0 and sophisticated prompt engineering, this simulator creates realistic patient scenarios.
 
 
 **Key Features:**
