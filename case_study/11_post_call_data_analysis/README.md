@@ -1,81 +1,42 @@
-# AI Tutor
+# Post-Call Data Analysis for AI Customer Care Agents
 
-This project provides an AI-powered tutoring system designed to assist learners with various subjects.
+This project implements a system for analyzing post-call data from AI-powered customer care interactions. It focuses on evaluating the performance of the AI agent in understanding and resolving customer queries through voice interaction.
 
-## Description
+## Overview
 
-The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
-It is an application of the Retrieval Augmented Generation (RAG) pipeline, specifically the retrieval part. Here's a breakdown:
+The system processes recorded audio conversations between customers and AI agents, converting them into text for detailed analysis. This analysis aims to:
 
-RAG Overview
+* **Assess AI Agent Performance:** Determine the effectiveness of the AI agent in understanding customer needs and providing appropriate solutions.
+* **Identify Areas for Improvement:** Pinpoint weaknesses in the AI agent's performance, such as misinterpretations or inadequate responses.
+* **Enhance Customer Experience:** Improve the AI agent's ability to handle customer queries efficiently and effectively.
 
-RAG combines the power of pre-trained language models (LLMs) with external knowledge sources. The process typically involves:
+## Key Features
 
-Retrieval:
-Fetching relevant information from a knowledge base (like a vector database).
-This is where the provided code focuses.
+* **Audio Transcription:** Automated conversion of recorded voice interactions into text.
+* **Query Analysis:** AI-powered analysis of the transcribed text to identify customer queries and agent responses.
+* **Performance Evaluation:** Automated evaluation of the AI agent's performance based on accuracy, efficiency, and customer satisfaction metrics.
+* **Detailed Reporting:** Generation of comprehensive reports highlighting agent performance and areas for improvement.
+* **Backend Storage:** Secure storage of call recordings and transcribed data for future analysis.
 
-Augmentation:
-Injecting the retrieved information into the LLM's prompt.
+## Technology Stack
 
-Generation:
-The LLM generates a response based on the augmented prompt.
+* **Speech-to-Text API:** 
+* **Natural Language Processing (NLP):** 
+* **Database:** 
+* **Backend Framework:** 
+* **Reporting Tools:** 
 
-## Installation
+## Workflow
 
-1.  **Clone the repository:**
-
-    ```bash
-    git clone [https://github.com/edquestofficial/ai-tutor.git](https://github.com/edquestofficial/ai-tutor.git)
-    cd ai-tutor
-    ```
-
-2.  **Install dependencies:**
-
-    * This project likely uses Python and requires specific libraries.
-    * Created a virtual environment and activated it using the following commands
-
-    ```bash
-    python -m venv venv
-    venv/Scripts/activate
-    source venv/bin/activate
-
-    * Consult the project's `requirements.txt` for dependencies and install them using pip:
-
-        ```bash
-        pip install -r requirements.txt
-        ```
-
-3.  **Set up API keys :**
-
-    * The AI Tutor requires API keys for Gemini services. Created an API key for Gemini from Google Studio and used it in the project.
-      
-
-4.  **Database setup:**
-
-    * Pinecone Vector database has been used to store the data and give results when fetched according to the requirements.
+1.  **Call Recording:** Customer-AI agent voice interaction is recorded.
+2.  **Audio Transcription:** The recorded audio is converted into text using a Speech-to-Text API.
+3.  **Text Analysis:** The transcribed text is analyzed using NLP techniques to identify customer queries and agent responses.
+4.  **Performance Evaluation:** The AI agent's performance is evaluated based on predefined metrics.
+5.  **Report Generation:** A detailed report is generated, highlighting the agent's performance and areas for improvement.
 
 ## Usage
 
-1.  **Run the application:**
-
-    * Execute the main script of the AI Tutor. For example, if the main script is `main.py`:
-
-        ```bash
-        python main.py
-        ```
-
-2.  **Interact with the tutor:**
-
-   
-
-3.  **Configuration:**
-
-    * Refer to the project's configuration files or documentation to customize settings like the AI model, learning parameters, or user preferences.
+(Add instructions on how to set up and run the project, if applicable. Include API keys and setup information)
 
 
-## Acknowledgments
-
-* [Mention any libraries or resources used, e.g., OpenAI, specific frameworks]
-* [Acknowledge any contributors or individuals who helped with the project]
 
