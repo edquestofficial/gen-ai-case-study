@@ -64,7 +64,7 @@ as chunks in the database.
 
 
 Now that students have got their answers.They might want to test their knowledge. This is where the third and last functionality comes into play that is a 
-quiz. The student will enter the topic and number of questions that they want to answer.
+quiz. The student will enter the topic and number of questions that they want to answer and AI Tutor will evaluate your learnings by showing the Quiz score. 
 
 
 
