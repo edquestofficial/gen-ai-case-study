@@ -18,13 +18,16 @@ This project is an AI-driven platform designed to enhance medical students' clin
 Steps
 1. **Clone the Repository:**
 
-git clone <repository-url>
-cd <repository-name>
+  git clone "repository-url"
+  
+  cd "repository-name"
 
 2. **Setup Backend:**
  
 python -m venv venv
+
 source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+
 pip install -r requirements.txt
 
 
