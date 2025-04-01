@@ -6,6 +6,9 @@
 This project provides an AI-powered tutoring system designed to assist learners with various subjects.The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
 It is an application of the Retrieval Augmented Generation (RAG).
 
+![image](https://github.com/user-attachments/assets/2202e42e-9d41-4e87-81e8-d535fc5b36b2)
+
+
 ## Description
 
 **RAG Overview**
