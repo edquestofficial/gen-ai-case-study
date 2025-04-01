@@ -34,7 +34,7 @@ Here is the link to server side README.md file - [Server-Side README](server/REA
 
 The application has 3 main functionalities for user:
 
-*Inserting the Data and Metadata (Uploading the file)
+  * **Inserting the Data and Metadata (Uploading the file)**
 
 Our user is a student who wants to learn about any topic from the file that they have uploaded.
 They can upload the file and add certain details like class, subject, chapter name as metadata components. The file data would get stored in the form of chunks in the database.
