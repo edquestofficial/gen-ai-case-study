@@ -66,6 +66,11 @@ Medical Student: "Sounds like a common cold. Rest is crucial, drink plenty of fl
 
 Patient (AI Simulator): "Okay, thank you, Doctor."
 
+**For more information** 
+
+Please refer to the following document: 
+
+https://docs.google.com/document/d/1bgf17yXB32jOcbz43Jbguy8DsZJyQZo_/edit?usp=sharing&ouid=105555246463676731902&rtpof=true&sd=true
 
    
 
