@@ -17,23 +17,26 @@ This project is an AI-driven platform designed to enhance medical students' clin
 
 **Interact with the Patient:**
 
-Patient (AI Simulator): "Doc, I feel terrible. My throat's on fire, I can't stop sneezing, and my head's pounding."
+![image](https://github.com/user-attachments/assets/ab202f24-3080-49f0-809d-b5a22ee029c5)
 
-Medical Student: "Alright, let's get some details. When did this start?"
 
-Patient (AI Simulator): "About three days ago. It started with a tickle in my throat, then the sneezing began. Now, I have a runny nose, a cough, and I'm just exhausted."
+**Patient (AI Simulator)**: "Doc, I feel terrible. My throat's on fire, I can't stop sneezing, and my head's pounding."
 
-Medical Student: "Any fever or chills?"
+**Medical Student**: "Alright, let's get some details. When did this start?"
 
-Patient (AI Simulator): "Yeah, I've felt warm, especially at night, and I had chills last evening."
+**Patient (AI Simulator)**: "About three days ago. It started with a tickle in my throat, then the sneezing began. Now, I have a runny nose, a cough, and I'm just exhausted."
 
-Medical Student: "Okay. And any muscle aches or congestion?"
+**Medical Student**: "Any fever or chills?"
 
-Patient (AI Simulator): "A little achy, especially my back, and my nose is completely stuffed up."
+**Patient (AI Simulator)**: "Yeah, I've felt warm, especially at night, and I had chills last evening."
 
-Medical Student: "Sounds like a common cold. Rest is crucial, drink plenty of fluids, and use over-the-counter pain relievers for the headache and aches. Gargle with warm salt water for the sore throat and use saline nasal spray for the congestion. For the cough, a cough suppressant can help. If your fever rises, or you have trouble breathing, please return immediately."
+**Medical Student**: "Okay. And any muscle aches or congestion?"
 
-Patient (AI Simulator): "Okay, thank you, Doctor."
+**Patient (AI Simulator)**: "A little achy, especially my back, and my nose is completely stuffed up."
+
+**Medical Student**: "Sounds like a common cold. Rest is crucial, drink plenty of fluids, and use over-the-counter pain relievers for the headache and aches. Gargle with warm salt water for the sore throat and use saline nasal spray for the congestion. For the cough, a cough suppressant can help. If your fever rises, or you have trouble breathing, please return immediately."
+
+**Patient (AI Simulator)**: "Okay, thank you, Doctor."
 
 **For more information** 
 
