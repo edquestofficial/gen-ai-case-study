@@ -11,7 +11,7 @@ The pipeline consists of two primary components: **Triage** and **Email & Number
 ### 1. Triage 
 
 * **Purpose:** The Triage component is responsible for analyzing incoming emails and classifying them as potentially fraudulent or legitimate, using parsing.
-* 
+ 
 * **Functionality:**
     * Applies a set of predefined rules and patterns to analyze email headers and body content.
     * Identifies suspicious keywords, phrases, and structural anomalies (e.g., mismatched sender domains, unusual subject lines, urgent requests).
