@@ -1,81 +1,54 @@
-# AI Tutor
+# Email Threat Detection Pipeline 
 
-This project provides an AI-powered tutoring system designed to assist learners with various subjects.
+This project implements a Python-based pipeline for detecting fraudulent emails, extracting relevant information using parsing techniques, and automating the forwarding of these emails to appropriate departments for immediate action.
 
-## Description
+## Overview
 
-The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
-It is an application of the Retrieval Augmented Generation (RAG) pipeline, specifically the retrieval part. Here's a breakdown:
+The pipeline consists of two primary components: **Triage** and **Email & Number Extraction**. These components work in tandem to streamline the process of identifying and responding to email fraud. This version focuses on parsing for data extraction, rather than machine learning for triage.
 
-RAG Overview
+## Components
 
-RAG combines the power of pre-trained language models (LLMs) with external knowledge sources. The process typically involves:
+### 1. Triage 
 
-Retrieval:
-Fetching relevant information from a knowledge base (like a vector database).
-This is where the provided code focuses.
+* **Purpose:** The Triage component is responsible for analyzing incoming emails and classifying them as potentially fraudulent or legitimate, using parsing.
+* 
+* **Functionality:**
+    * Applies a set of predefined rules and patterns to analyze email headers and body content.
+    * Identifies suspicious keywords, phrases, and structural anomalies (e.g., mismatched sender domains, unusual subject lines, urgent requests).
+    * Uses regular expressions and string manipulation to detect patterns.
+    * Filters emails based on these rules, marking those that match suspicious patterns as potentially fraudulent.
+    * 
+* **Technical Details:**
+    
 
-Augmentation:
-Injecting the retrieved information into the LLM's prompt.
+### 2. Email & Number Extraction
 
-Generation:
-The LLM generates a response based on the augmented prompt.
-
-## Installation
-
-1.  **Clone the repository:**
-
-    ```bash
-    git clone [https://github.com/edquestofficial/ai-tutor.git](https://github.com/edquestofficial/ai-tutor.git)
-    cd ai-tutor
-    ```
-
-2.  **Install dependencies:**
-
-    * This project likely uses Python and requires specific libraries.
-    * Created a virtual environment and activated it using the following commands
-
-    ```bash
-    python -m venv venv
-    venv/Scripts/activate
-    source venv/bin/activate
-
-    * Consult the project's `requirements.txt` for dependencies and install them using pip:
-
-        ```bash
-        pip install -r requirements.txt
-        ```
-
-3.  **Set up API keys :**
-
-    * The AI Tutor requires API keys for Gemini services. Created an API key for Gemini from Google Studio and used it in the project.
+* **Purpose:** This component extracts critical information from emails flagged as potentially fraudulent by the Triage component.
+  
+* **Functionality:**
+    * Parses email content to identify and extract email addresses, phone numbers, URLs, and other relevant details.
+    * Validates extracted information using regular expressions and other validation techniques.
+    * Formats extracted data into a structured format (e.g., JSON).
+    * Automatically routes the extracted information and the original email to the designated departments (e.g., security, legal).
       
+* **Technical Details:**
 
-4.  **Database setup:**
+   
+## Workflow
 
-    * Pinecone Vector database has been used to store the data and give results when fetched according to the requirements.
+1.  **Email Reception:** The pipeline receives incoming emails.
+2.  **Triage Analysis (Parsing):** The Triage component analyzes the email using rule-based parsing.
+3.  **Fraud Classification:** Emails matching suspicious patterns are marked as potentially fraudulent.
+4.  **Information Extraction:** The Email & Number Extraction component extracts key details from the flagged emails.
+5.  **Data Structuring:** Extracted data is formatted into a structured format.
+6.  **Automated Routing:** The extracted information and the original email are sent to the relevant departments.
+7.  **Action & Investigation:** The designated departments take appropriate action based on the provided information.
+
+## Technology Stack
+
+
 
 ## Usage
 
-1.  **Run the application:**
-
-    * Execute the main script of the AI Tutor. For example, if the main script is `main.py`:
-
-        ```bash
-        python main.py
-        ```
-
-2.  **Interact with the tutor:**
-
-   
-
-3.  **Configuration:**
-
-    * Refer to the project's configuration files or documentation to customize settings like the AI model, learning parameters, or user preferences.
-
-
-## Acknowledgments
-
-* [Mention any libraries or resources used, e.g., OpenAI, specific frameworks]
-* [Acknowledge any contributors or individuals who helped with the project]
+(Include instructions for setting up the environment, installing dependencies, and running the pipeline. Include configuration details for email servers, department routing, and the rules used for the Triage component.)
 
