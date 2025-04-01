@@ -1,81 +1,72 @@
-# AI Tutor
+# Patient Avatar
 
-This project provides an AI-powered tutoring system designed to assist learners with various subjects.
+TThis project is an AI-driven platform designed to enhance medical students' clinical interaction and diagnostic skills using voice interaction. Leveraging the advanced capabilities of ChatGPT 4.0 and sophisticated prompt engineering, this simulator creates realistic patient scenarios.
 
-## Description
 
-The AI Tutor aims to create an interactive and personalized learning experience. It leverages AI models to answer questions, explain concepts, and provide feedback, making learning more engaging and effective.
-It is an application of the Retrieval Augmented Generation (RAG) pipeline, specifically the retrieval part. Here's a breakdown:
+**Key Features:**
 
-RAG Overview
-
-RAG combines the power of pre-trained language models (LLMs) with external knowledge sources. The process typically involves:
-
-Retrieval:
-Fetching relevant information from a knowledge base (like a vector database).
-This is where the provided code focuses.
-
-Augmentation:
-Injecting the retrieved information into the LLM's prompt.
-
-Generation:
-The LLM generates a response based on the augmented prompt.
+* **Simulated Patient Interactions:** Medical students engage with an AI simulator that presents diverse patient symptoms and medical histories.
+* **Skill Development:** Students practice patient interviewing, symptom analysis, and treatment prescription in a safe, controlled environment.
+* **ChatGPT 4.0 Integration:** Utilizes the advanced language model for realistic and dynamic patient responses.
+* **Conversation Storage:** All interactions are securely stored in the backend for review and analysis.
+* **Performance Evaluation:** A comprehensive evaluation report is generated at the end of each simulation, providing feedback on the student's performance and identifying areas for improvement.
+* **Prompt Engineering Implementation:** The system's effectiveness relies on carefully crafted prompts to ensure accurate and relevant patient simulations.
+  
 
 ## Installation
 
-1.  **Clone the repository:**
+Steps
+1. **Clone the Repository:**
 
-    ```bash
-    git clone [https://github.com/edquestofficial/ai-tutor.git](https://github.com/edquestofficial/ai-tutor.git)
-    cd ai-tutor
-    ```
+git clone <repository-url>
+cd <repository-name>
 
-2.  **Install dependencies:**
+2. **Setup Backend:**
+ 
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+pip install -r requirements.txt
 
-    * This project likely uses Python and requires specific libraries.
-    * Created a virtual environment and activated it using the following commands
-
-    ```bash
-    python -m venv venv
-    venv/Scripts/activate
-    source venv/bin/activate
-
-    * Consult the project's `requirements.txt` for dependencies and install them using pip:
-
-        ```bash
-        pip install -r requirements.txt
-        ```
 
 3.  **Set up API keys :**
 
-    * The AI Tutor requires API keys for Gemini services. Created an API key for Gemini from Google Studio and used it in the project.
+    * The Patient Avatar requires API keys for Open AI ChatGPT-4.0 services. 
       
-
-4.  **Database setup:**
-
-    * Pinecone Vector database has been used to store the data and give results when fetched according to the requirements.
 
 ## Usage
 
 1.  **Run the application:**
 
-    * Execute the main script of the AI Tutor. For example, if the main script is `main.py`:
+    * Execute the main script of the Patient Avatar. For example, if the main script is `main.py`:
 
         ```bash
         python main.py
         ```
 
-2.  **Interact with the tutor:**
+2.  **Interact with the Patient:**
+
+Patient (AI Simulator): "Doc, I feel terrible. My throat's on fire, I can't stop sneezing, and my head's pounding."
+
+Medical Student: "Alright, let's get some details. When did this start?"
+
+Patient (AI Simulator): "About three days ago. It started with a tickle in my throat, then the sneezing began. Now, I have a runny nose, a cough, and I'm just exhausted."
+
+Medical Student: "Any fever or chills?"
+
+Patient (AI Simulator): "Yeah, I've felt warm, especially at night, and I had chills last evening."
+
+Medical Student: "Okay. And any muscle aches or congestion?"
+
+Patient (AI Simulator): "A little achy, especially my back, and my nose is completely stuffed up."
+
+Medical Student: "Sounds like a common cold. Rest is crucial, drink plenty of fluids, and use over-the-counter pain relievers for the headache and aches. Gargle with warm salt water for the sore throat and use saline nasal spray for the congestion. For the cough, a cough suppressant can help. If your fever rises, or you have trouble breathing, please return immediately."
+
+Patient (AI Simulator): "Okay, thank you, Doctor."
+
 
    
 
-3.  **Configuration:**
-
-    * Refer to the project's configuration files or documentation to customize settings like the AI model, learning parameters, or user preferences.
 
 
-## Acknowledgments
 
-* [Mention any libraries or resources used, e.g., OpenAI, specific frameworks]
-* [Acknowledge any contributors or individuals who helped with the project]
 
