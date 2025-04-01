@@ -1,4 +1,4 @@
-# Email Threat Detection Pipeline 
+# Email Threat Detection  
 
 This project implements a Python-based pipeline for detecting fraudulent emails, extracting relevant information using parsing techniques, and automating the forwarding of these emails to appropriate departments for immediate action.
 
