@@ -2,6 +2,8 @@
 
 This project is an AI-driven platform designed to enhance medical students' clinical interaction and diagnostic skills using voice interaction, observing their hand movements and analysing their communication with an AI powered patient. Leveraging the advanced capabilities of ChatGPT 4.0 and sophisticated prompt engineering, this simulator creates realistic patient scenarios.
 
+![image](https://github.com/user-attachments/assets/ef8e5528-dec1-4a38-a409-3b4ef685a59d)
+
 
 **Key Features:**
 
@@ -11,42 +13,9 @@ This project is an AI-driven platform designed to enhance medical students' clin
 * **Conversation Storage:** All interactions are securely stored in the backend for review and analysis.
 * **Performance Evaluation:** A comprehensive evaluation report is generated at the end of each simulation, providing feedback on the student's performance and identifying areas for improvement.
 * **Prompt Engineering Implementation:** The system's effectiveness relies on carefully crafted prompts to ensure accurate and relevant patient simulations.
-  
+    
 
-## Installation
-
-Steps
-1. **Clone the Repository:**
-
-  git clone "repository-url"
-  
-  cd "repository-name"
-
-2. **Setup Backend:**
- 
-python -m venv venv
-
-source venv/bin/activate  # On Windows: venv\\Scripts\\activate
-
-pip install -r requirements.txt
-
-
-3.  **Set up API keys :**
-
-    * The Patient Avatar requires API keys for Open AI ChatGPT-4.0 services. 
-      
-
-## Usage
-
-1.  **Run the application:**
-
-    * Execute the main script of the Patient Avatar. For example, if the main script is `main.py`:
-
-        ```bash
-        python main.py
-        ```
-
-2.  **Interact with the Patient:**
+**Interact with the Patient:**
 
 Patient (AI Simulator): "Doc, I feel terrible. My throat's on fire, I can't stop sneezing, and my head's pounding."
 
