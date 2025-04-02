@@ -1,8 +1,0 @@
-llama-index
-llama_index.core
-llama_index.llms.gemini
-llama_index.embeddings.gemini
-chromadb
-llama-index-vector-stores-chroma
-gradio
-PyPDF2
