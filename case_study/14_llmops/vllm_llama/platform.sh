@@ -7,6 +7,12 @@ echo "Updating system packages..."
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+# Install nvidia device drivers
+
+sudo apt update --fix-missing && apt-get install alsa-utils -y
+sudo apt install ubuntu-drivers-common -y
+sudo ubuntu-drivers autoinstall 
+
 # # Ensure /etc/ansible/facts.d exists
 # echo "Ensuring /etc/ansible/facts.d exists..."
 # sudo mkdir -p /etc/ansible/facts.d
@@ -67,14 +73,10 @@ sudo systemctl restart docker
 
 # Add NVIDIA's GPG key
 echo "Adding NVIDIA's GPG key..."
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-
-# Set up the NVIDIA Container Toolkit repository
-echo "Setting up NVIDIA Container Toolkit repository..."
-distribution=$(lsb_release -cs)
-echo \
-  "deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://nvidia.github.io/libnvidia-container/stable/ubuntu${distribution}/$(dpkg --print-architecture) /" | \
-  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list > /dev/null
+"curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+&& curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list"
 
 # Install NVIDIA Container Toolkit
 echo "Installing NVIDIA Container Toolkit..."
@@ -93,9 +95,9 @@ echo "Restarting Docker..."
 sudo systemctl restart docker
 
 # Download NVIDIA Docker wrapper
-echo "Downloading NVIDIA Docker wrapper..."
-sudo curl -fsSL https://github.com/NVIDIA/nvidia-docker/raw/master/tools/nvidia-docker | sudo tee /usr/local/bin/nvidia-docker > /dev/null
-sudo chmod 0755 /usr/local/bin/nvidia-docker
+# echo "Downloading NVIDIA Docker wrapper..."
+# sudo curl -fsSL https://github.com/NVIDIA/nvidia-docker/raw/master/tools/nvidia-docker | sudo tee /usr/local/bin/nvidia-docker > /dev/null
+# sudo chmod 0755 /usr/local/bin/nvidia-docker
 
 # # Verify NVIDIA runtime installation
 # echo "Verifying NVIDIA runtime installation..."
