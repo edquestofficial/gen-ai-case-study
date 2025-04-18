@@ -13,16 +13,6 @@ sudo apt update --fix-missing && apt-get install alsa-utils -y
 sudo apt install ubuntu-drivers-common -y
 sudo ubuntu-drivers autoinstall 
 
-# # Ensure /etc/ansible/facts.d exists
-# echo "Ensuring /etc/ansible/facts.d exists..."
-# sudo mkdir -p /etc/ansible/facts.d
-# sudo chown root:root /etc/ansible/facts.d
-
-# # Copy custom facts
-# echo "Setting up custom facts..."
-# sudo cp ./etc/ansible/facts.d/nv_os_release.fact /etc/ansible/facts.d/
-# sudo chmod 0755 /etc/ansible/facts.d/nv_os_release.fact
-
 # Install prerequisites for Docker
 echo "Installing prerequisites for Docker..."
 sudo apt-get install -y \
@@ -93,14 +83,5 @@ sudo nvidia-ctk runtime configure --runtime=docker
 # Restart Docker to apply changes
 echo "Restarting Docker..."
 sudo systemctl restart docker
-
-# Download NVIDIA Docker wrapper
-# echo "Downloading NVIDIA Docker wrapper..."
-# sudo curl -fsSL https://github.com/NVIDIA/nvidia-docker/raw/master/tools/nvidia-docker | sudo tee /usr/local/bin/nvidia-docker > /dev/null
-# sudo chmod 0755 /usr/local/bin/nvidia-docker
-
-# # Verify NVIDIA runtime installation
-# echo "Verifying NVIDIA runtime installation..."
-# docker run --rm --gpus all nvidia/cuda:11.8.0-base nvidia-smi
 
 echo "Docker, NVIDIA Docker, and NVIDIA Container Runtime setup completed successfully!"
