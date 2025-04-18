@@ -85,3 +85,7 @@ echo "Restarting Docker..."
 sudo systemctl restart docker
 
 echo "Docker, NVIDIA Docker, and NVIDIA Container Runtime setup completed successfully!"
+
+# Reboot system to load nvidia-smi and it's configuration as runtime
+echo "Rebooting system, Refresh after 60 seconds ..."
+sudo reboot
