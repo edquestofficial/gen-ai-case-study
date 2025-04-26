@@ -1,0 +1,31 @@
+repos:
+  # Uncomment and use these if you want default hygiene checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+
+  - repo: local
+    hooks:
+      - id: pylint-check
+        name: Run pylint
+        entry: ./scripts/run_pylint.sh
+        language: script
+        types: [python]
+        stages: [pre-commit]
+        pass_filenames: false
+        always_run: true
+        verbose: true
+
+      - id: coverage-check
+        name: Check test coverage
+        entry: ./scripts/run_coverage.sh
+        language: script
+        types: [python]
+        stages: [pre-push]
+        pass_filenames: false
+        always_run: true
+        verbose: true

@@ -1,0 +1,10 @@
+[tool.pylint]
+[tool.pylint."MESSAGES CONTROL"]
+disable = ["missing-docstring"]
+
+[tool.coverage.run]
+branch = true
+source = ["sample_module"]
+
+[tool.coverage.report]
+omit = ["tests/*"]
