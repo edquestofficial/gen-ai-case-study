@@ -1,9 +1,9 @@
 name: AWS CICD pipeline
 
-on:
-  push:        # Trigger workflow on push events
-    branches:
-      - main   # Specify the branch to trigger the workflow (e.g., 'main')
+# on:
+#   push:        # Trigger workflow on push events
+#     branches:
+#       - main   # Specify the branch to trigger the workflow (e.g., 'main')
 
 jobs:
   deploy-lambda:
